@@ -45,7 +45,7 @@ I am currently seeking research internship opportunities related to autonomous d
     <b>Cepton</b><br/>
     LiDAR Intern<br/>
     <i>Jun 2022 – Sep 2022</i><br/>
-    Worked on LiDAR perception and point cloud data processing for autonomous driving applications.
+  
   </li>
 </ul>
 </div>
