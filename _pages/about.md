@@ -8,7 +8,7 @@ redirect_from:
 
 ## About me
 
-I am a PhD candidate at New York University working on human-in-the-loop driving simulation and safety-critical construction-site scenarios.
+I am a third-year PhD candidate at New York University conducting research on driving simulation, traffic safety, and autonomous driving.
 
 
 My research centers on traffic safety in complex and hazardous roadway scenarios, with a particular focus on construction sites. I design and build HCI-driven, VR-based dual-user simulation platforms on top of CARLA and Unreal Engine to safely study driver–worker interactions that are difficult or risky to observe in the real world.
