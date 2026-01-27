@@ -24,11 +24,13 @@ repository               : "academicpages/academicpages.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
-  pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
+  author:
+  name: "Shuo Zhang"
+  avatar: "/images/profile.png"
+  bio: "PhD candidate at NYU. Human-in-the-loop driving simulation, multimodal sensing, and human-like autonomous driving."
+  location: "New York, USA"
+  employer: "New York University"
+
   uri              : # URL
   email            : "none@example.org" 
 
