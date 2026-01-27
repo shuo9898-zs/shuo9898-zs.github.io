@@ -37,13 +37,16 @@ I am currently seeking research internship opportunities related to autonomous d
 </ul>
 </div>
 
+
 <div style="flex:1; min-width:260px;">
-<h2>Research Experience</h2>
+<h2>Industry Experience</h2>
 <ul>
-  <li><b>NYU biLAB / C2SMARTER</b><br/>
-      VR-based driving simulation, multimodal data collection, human factors studies</li>
-  <li style="margin-top:10px;"><b>ACM AutomotiveUI</b><br/>
-      Published VR-based multi-user driving simulator platform</li>
+  <li>
+    <b>Cepton</b><br/>
+    LiDAR Intern<br/>
+    <i>Jun 2022 – Sep 2022</i><br/>
+    Worked on LiDAR perception and point cloud data processing for autonomous driving applications.
+  </li>
 </ul>
 </div>
 
