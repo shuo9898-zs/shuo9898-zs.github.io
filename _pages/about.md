@@ -58,9 +58,10 @@ I am currently seeking research internship opportunities related to autonomous d
 ---
 
 ## News
+- **Nov 2025:** Gave an invited presentation at New York City’s Vision Zero program on a VR-based dual-user driving simulation platform.
 - **Sep 2025:** Presented my paper as an **oral presentation** at ACM AutomotiveUI.
 - **Jun 2025:** Awarded **2nd Place** in the Poster Competition at the ITS-NY Annual Meeting.
-- **Nov 2024:** Gave an invited presentation at New York City’s Vision Zero program on a VR-based dual-user driving simulation platform.
 - **Oct 2024:** Presented my paper on road safety simulation in Kentucky.
-- **Nov 2023:** Participated in the National STEM Day event through NYU C2SMART center, presenting interactive VR-based transportation research.
+- **Nov 2023:** Participated in the National STEM Day event through NYU biLAB, presenting interactive VR-based transportation research.
+
 
