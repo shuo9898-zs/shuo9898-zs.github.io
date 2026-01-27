@@ -10,11 +10,14 @@ redirect_from:
 
 I am a PhD candidate at New York University working on human-in-the-loop driving simulation and safety-critical construction-site scenarios.
 
-My research focuses on building VR-based dual-user simulation systems on top of CARLA and Unreal Engine to study realistic driver–worker interactions that are difficult and risky to observe in the real world. I integrate multimodal sensing, including driver gaze, biometric signals, and vehicle telemetry, to analyze human behavior and attention under complex traffic conditions.
 
-I also leverage the collected data to develop and evaluate human-like autonomous driving models using imitation learning and vision–language–action approaches.
+My research centers on traffic safety in complex and hazardous roadway scenarios, with a particular focus on construction sites. I design and build HCI-driven, VR-based dual-user simulation platforms on top of CARLA and Unreal Engine to safely study driver–worker interactions that are difficult or risky to observe in the real world.
 
-I am currently seeking research internship opportunities related to autonomous driving, robotics, computer vision, and human-centered AI.
+Through these platforms, I collect and analyze multimodal human data, including driver gaze, biometric signals, and vehicle sensor data, to investigate human factors such as attention, workload, and behavioral responses under complex traffic conditions.
+
+Building on the collected human data, I further explore imitation learning–based approaches to develop and evaluate human-like autonomous driving policies, including vision–language–action models, with the goal of improving autonomous vehicle behavior in safety-critical environments.
+
+I am currently seeking research internship opportunities related to autonomous driving, human-centered AI, robotics, and computer vision.
 
 ---
 
