@@ -8,16 +8,16 @@ redirect_from:
 
 ## About me
 
-I am a third-year PhD candidate at New York University conducting research on driving simulation, traffic safety, and autonomous driving.
+I am a third-year PhD candidate at New York University conducting research on driving simulation and human behavior modeling for autonomous driving.
 
+My research focuses on designing and building HCI-driven, VR-based driving simulation platforms on top of CARLA and Unreal Engine to study complex driving interactions that are difficult or impractical to observe in the real world.
 
-My research centers on traffic safety in complex and hazardous roadway scenarios, with a particular focus on construction sites. I design and build HCI-driven, VR-based dual-user simulation platforms on top of CARLA and Unreal Engine to safely study driver–worker interactions that are difficult or risky to observe in the real world.
+Through these platforms, I collect and analyze multimodal human data, including driver gaze, biometric signals, and vehicle sensor data, to investigate human factors such as attention, workload, and behavioral responses during driving.
 
-Through these platforms, I collect and analyze multimodal human data, including driver gaze, biometric signals, and vehicle sensor data, to investigate human factors such as attention, workload, and behavioral responses under complex traffic conditions.
+Building on the collected human data, I further explore imitation learning–based approaches to develop and evaluate human-like autonomous driving policies, including vision–language–action models.
 
-Building on the collected human data, I further explore imitation learning–based approaches to develop and evaluate human-like autonomous driving policies, including vision–language–action models, with the goal of improving autonomous vehicle behavior in safety-critical environments.
+I am currently seeking research internship opportunities related to human–computer interaction, autonomous driving, robotics, computer vision, and applied machine learning.
 
-I am currently seeking research internship opportunities related to autonomous driving, human-centered AI, robotics, and computer vision.
 
 ---
 
