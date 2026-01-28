@@ -27,26 +27,17 @@ author:
   author:
   name: "Shuo Zhang"
   avatar: "/images/profile.png"
-  bio: "PhD candidate at NYU. Human-in-the-loop driving simulation, multimodal sensing, and human-like autonomous driving."
   location: "New York, USA"
   employer: "New York University"
 
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "shuo.z@nyu.edu" 
 
   # Academic websites
   academia         : # URL
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
-  inspire-hep      : # URL
-  impactstory      : # URL
-  orcid            : "https://orcid.org/yourorcidurl"
-  semantic         : # URL
-  ssrn             : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  researchgate     : # URL
-  scopus           : # URL
-  zotero           : # URL
+  googlescholar    : "https://scholar.google.com/citations?user=0SdVj4MAAAAJ&hl=en&oi=ao"
+  
 
 
   # Repositories and software development
