@@ -6,6 +6,17 @@ redirect_from:
   - /about.html
 ---
 
+---
+layout: single
+permalink: /
+title: "About"
+author_profile: true
+redirect_from:
+  - /about/
+  - /about.html
+---
+
+
 ## About me
 
 I am a third-year PhD candidate at New York University.
