@@ -23,7 +23,7 @@ repository: "shuo9898-zs/shuo9898-zs.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "headshot.jpg"
+  avatar           : "/images/headshot.jpg"
   author:
   name: "Shuo Zhang"
   avatar: "/images/profile.png"
