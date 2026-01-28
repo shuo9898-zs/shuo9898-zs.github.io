@@ -8,7 +8,7 @@ redirect_from:
 
 ## About me
 
-I am a third-year PhD candidate at New York University conducting research on driving simulation and human behavior modeling for autonomous driving.
+I am a third-year PhD candidate at New York University.
 
 My research focuses on designing and building HCI-driven, VR-based driving simulation platforms on top of CARLA and Unreal Engine to study complex driving interactions that are difficult or impractical to observe in the real world.
 
