@@ -13,9 +13,10 @@ site_theme               : "default" # The available themes options are "default
 title: "Shuo Zhang"
 description: "PhD Candidate @ NYU | Human-in-the-loop driving simulation | Multimodal sensing | Autonomous Driving"
 
-url                      : "https://github.com/shuo9898-zs"
-baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
+url: "https://shuo9898-zs.github.io"
+baseurl: ""   # 用户主页站点就必须是空
+repository: "shuo9898-zs/shuo9898-zs.github.io"
+
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
