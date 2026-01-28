@@ -1,0 +1,34 @@
+{% assign pubs_by_year = include.publications | group_by_exp: "p", "p.date | date: '%Y'" %}
+
+{% for y in pubs_by_year %}
+  <h1 style="text-align:center; margin: 1.2em 0 0.8em 0;">{{ y.name }}</h1>
+
+  {% for p in y.items %}
+    <div style="display:flex; gap:24px; align-items:flex-start; margin: 22px 0;">
+      <div style="flex:0 0 320px;">
+        {% if p.image %}
+          <img src="{{ p.image | relative_url }}" style="width:320px; height:auto; border-radius:8px; border:1px solid #eee;" />
+        {% endif %}
+      </div>
+
+      <div style="flex:1;">
+        <div style="font-size:20px; font-weight:700; line-height:1.2;">
+          <a href="{{ p.url | relative_url }}">{{ p.title }}</a>
+        </div>
+
+        {% if p.authors %}
+          <div style="margin-top:6px;">{{ p.authors }}</div>
+        {% endif %}
+
+        {% if p.venue %}
+          <div style="margin-top:6px; font-weight:600;">{{ p.venue }}</div>
+        {% endif %}
+
+        <div style="margin-top:8px;">
+          {% if p.paperurl %}<a href="{{ p.paperurl }}">[Paper]</a>{% endif %}
+          {% if p.codeurl %} <a href="{{ p.codeurl }}">[Code]</a>{% endif %}
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+{% endfor %}
