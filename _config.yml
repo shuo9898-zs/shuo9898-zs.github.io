@@ -13,8 +13,7 @@ site_theme               : "default" # The available themes options are "default
 title: "Shuo Zhang"
 description: "PhD Candidate @ NYU | Human-in-the-loop driving simulation | Multimodal sensing | Autonomous Driving"
 
-url                      : https://academicpages.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
-                                                           # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
+url                      : "https://github.com/shuo9898-zs"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "academicpages/academicpages.github.io"
 
