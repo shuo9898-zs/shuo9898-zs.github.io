@@ -19,7 +19,7 @@ My research focuses on designing and building HCI-driven, VR-based driving simul
 
 Through these platforms, I collect and analyze multimodal human data, including driver gaze, biometric signals, and vehicle sensor data, to investigate human factors such as attention, workload, and behavioral responses during driving.
 
-My [DUALSense project](/dualsense/) brings a driver and a VR worker into one simulation to study interactions in safety-critical road scenarios.
+My [DuoRoad project](/duoroad/) brings a driver and a VR worker into one simulation to study interactions in safety-critical road scenarios.
 
 Building on the collected human data, I further explore imitation learning–based approaches to develop and evaluate human-like autonomous driving policies, including vision–language–action models.
 

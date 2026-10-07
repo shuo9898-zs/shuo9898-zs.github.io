@@ -1,96 +1,13 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="DUALSense is a dual-user VR driving research platform by Shuo Zhang at New York University (NYU), supporting driver–worker interaction and multimodal data collection."><meta name="author" content="Shuo Zhang"><link rel="canonical" href="https://shuo9898-zs.github.io/dualsense/"><title>DUALSense | Shuo Zhang, NYU | Driver–Worker VR Research</title><link rel="stylesheet" href="style.css?v=7"><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23303743'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='sans-serif' font-size='23' fill='white'%3ED%3C/text%3E%3C/svg%3E"></head><body>
-<main>
-<header class="project-header" id="top"><h1>DUALSense</h1><p class="subtitle">An Open-Source Dual-User VR Platform for<br class="desktop-break"> Driver–Worker Interaction with Multimodal Sensing</p><p class="project-byline"><a href="https://scholar.google.com/citations?user=0SdVj4MAAAAJ" target="_blank" rel="noopener">Shuo Zhang</a> · New York University (NYU)</p><div class="resource-links" aria-label="Research resources"><a href="paper.pdf" target="_blank" rel="noopener" title="Preview DUALSense paper (PDF)">Paper</a><a href="https://github.com/shuo9898-zs/DualSense">Code</a></div></header>
-<figure class="paper-figure teaser"><a href="figures/Jouranl2_Figure1.jpg" target="_blank" rel="noopener" aria-label="Open full-resolution figure: Driver–worker interaction, multimodal human-behavior capture, vehicle sensing, and traffic co-simulation."><img src="figures/Jouranl2_Figure1.jpg" alt="Driver–worker interaction, multimodal human-behavior capture, vehicle sensing, and traffic co-simulation." loading="lazy"></a><figcaption>Driver–worker interaction, multimodal human-behavior capture, vehicle sensing, and traffic co-simulation.</figcaption></figure>
-<section id="abstract" class="abstract" aria-label="Project summary"><div class="overview-points">
-  <div class="overview-item"><h3>Why?</h3><p>Studying <strong>safety-critical road scenarios</strong> in the field is often infeasible or costly, yet these <strong>long-tail corner cases</strong> matter for human-factors and autonomous-driving research.</p></div>
-  <div class="overview-item"><h3>How?</h3><p>DUALSense brings <strong>two human participants</strong>—a driver and a VR worker—into one simulation for <strong>multimodal data collection</strong> and configurable scenarios.</p></div>
-  <div class="overview-item"><h3>Validation</h3><p>A study with <strong>33 participants</strong> evaluates the platform's usability.</p></div>
-  <div class="overview-item"><h3>Extensibility</h3><p>Future extensions could study <strong>pedestrians and cyclists</strong>, <strong>human–AV interactions</strong>, and a wider range of safety-critical scenarios.</p></div>
-</div></section>
-<div id="methodology">
-<section id="data-collection" class="demo-section">
-  <div class="section-heading"><span class="number">01</span><div><h2>Interaction and Data Collection</h2><p>Live VR workers and prerecorded human-motion animations coexist in a shared work zone.</p></div></div>
-  <figure class="module-video" id="interaction-demo">
-    <video controls muted playsinline loop preload="none" poster="media/interaction-overview.jpg?v=2" aria-label="Real-time VR interaction, a human motion-capture workflow, and two worker types: live VR workers and prerecorded human-motion animations" aria-describedby="interaction-caption"><source src="media/interaction-overview.mp4?v=2" type="video/mp4"><a href="media/interaction-overview.mp4">Open the interaction video</a></video>
-    <figcaption id="interaction-caption">Real-time VR workers and prerecorded human-motion animations.</figcaption>
-  </figure>
-</section>
-<section id="human-data-collection" class="demo-section">
-  <span id="driver-interface" class="legacy-anchor" aria-hidden="true"></span><span id="vr-worker" class="legacy-anchor" aria-hidden="true"></span>
-  <div class="section-heading"><span class="number">02</span><div><h2>Human Data Collection</h2><p>Driver gaze and semantic segmentation, followed by VR motion and trajectory.</p></div></div>
-  <figure class="module-video" id="human-data-demo">
-    <video controls muted playsinline loop preload="none" poster="media/human-data-collection.jpg?v=2" aria-label="Twenty-second human data collection video: driver RGB, gaze and semantic segmentation for ten seconds, followed by VR participant footage and a recorded VR worker pose for ten seconds" aria-describedby="human-data-caption"><source src="media/human-data-collection.mp4?v=2" type="video/mp4"><a href="media/human-data-collection.mp4">Open the human data collection video</a></video>
-    <figcaption id="human-data-caption">Driver data, then VR motion. VR footage and pose are separate recordings.</figcaption>
-  </figure>
-</section>
-<section id="sensor-data" class="demo-section">
-  <div class="section-heading"><span class="number">03</span><div><h2>Multimodality Autonomous Driving Data Collection</h2><p>Multi-view RGB cameras, LiDAR point clouds, vehicle trajectories, and driver control inputs.</p></div></div>
-  <span id="multimodal" class="legacy-anchor" aria-hidden="true"></span><span id="vehicle-dynamics" class="legacy-anchor" aria-hidden="true"></span>
-  <figure class="module-video" id="av-data-demo">
-    <video controls muted playsinline loop preload="none" poster="media/mm-av-data-collection.jpg?v=6" aria-label="One video: ten seconds of four RGB cameras, followed by LiDAR visualization, then ten seconds with front RGB and driver controls above an enlarged trajectory scene map"><source src="media/mm-av-data-collection.mp4?v=6" type="video/mp4"><a href="media/mm-av-data-collection.mp4">Open the autonomous driving data collection video</a></video>
-  </figure>
-</section>
-<section id="co-simulation" class="demo-section">
-  <div class="section-heading"><span class="number">04</span><div><h2>Asynchronous Human-in-the-Loop Co-Simulation</h2><p>CARLA–SUMO traffic simulation and independent data-collection streams.</p></div></div>
-  <div class="cosim-carousel" id="cosim-carousel" aria-label="Co-simulation, collection frequency, and platform architecture">
-    <div class="cosim-carousel-nav">
-      <button type="button" class="cosim-arrow" data-cosim-prev aria-label="Previous view" disabled>‹</button>
-      <div class="cosim-picker" aria-label="Choose a view">
-        <button type="button" data-cosim-slide="0" aria-current="true">Co-simulation video</button>
-        <button type="button" data-cosim-slide="1" aria-current="false">Collection frequency</button>
-        <button type="button" data-cosim-slide="2" aria-current="false">Architecture</button>
-      </div>
-      <button type="button" class="cosim-arrow" data-cosim-next aria-label="Next view">›</button>
-    </div>
-    <div class="cosim-track" id="cosim-track" tabindex="0" aria-label="Swipe horizontally to browse the three co-simulation views">
-      <div class="cosim-slide" aria-label="View 1 of 3: co-simulation video">
-        <figure class="module-video" id="cosim-demo">
-          <video controls muted playsinline loop preload="none" poster="media/carla-sumo-cosimulation.jpg?v=2" aria-label="SUMO network opening, followed by CARLA and SUMO videos playing side by side"><source src="media/carla-sumo-cosimulation.mp4?v=2" type="video/mp4"><a href="media/carla-sumo-cosimulation.mp4">Open the CARLA–SUMO video</a></video>
-          <figcaption>SUMO network, then CARLA and SUMO side by side.</figcaption>
-        </figure>
-      </div>
-      <div class="cosim-slide" aria-label="View 2 of 3: asynchronous collection frequency and measured Driving UI FPS">
-        <h3>Asynchronous data collection</h3>
-        <a href="figures/journal2_appendixB_arch.jpg" target="_blank" rel="noopener" aria-label="Open full-resolution data-collection frequency diagram"><img class="cosim-frequency-image" src="figures/journal2_appendixB_arch.jpg" alt="Driving UI rendering and independent streams: UI screenshots, segmentation, gaze, four RGB cameras and trajectory at 10 Hz; LiDAR at 5 Hz." loading="lazy"></a>
-        <div class="cosim-fps-summary" id="runtime-performance">
-          <div class="cosim-fps-measure"><span>Average Driving UI</span><strong>34.54 <small>FPS</small></strong></div>
-          <div class="cosim-fps-details"><span>198 trials · 33 participants · 6 scenarios</span><small>Mean of trial-level <code>Client_FPS</code> values; each trial has equal weight.</small></div>
-        </div>
-      </div>
-      <div class="cosim-slide" id="system-design" aria-label="View 3 of 3: platform and collection architecture">
-        <h3>Platform &amp; Collection Architecture</h3>
-        <p class="cosim-architecture-intro">VR, driving, traffic simulation, and multimodal recording in one extensible platform.</p>
-        <a href="figures/Jouranl2_overview.jpg" target="_blank" rel="noopener" aria-label="Open full-resolution platform and collection architecture diagram"><img class="cosim-architecture-image" src="figures/Jouranl2_overview.jpg" alt="Architecture diagram connecting the Unreal VR worker, CARLA, PythonAPI, SUMO, the driving UI, gaze capture, and vehicle sensor data collection." loading="lazy"></a>
-      </div>
-    </div>
-  </div>
-</section>
-<section id="scenarios" class="demo-section">
-  <div class="section-heading"><span class="number">05</span><div><h2>Scenarios &amp; Work-Zone Types</h2><p>Six hazardous driving scenarios and three work-zone configurations.</p></div></div>
-  <div class="cosim-carousel" id="scenario-carousel" aria-label="Hazardous scenarios and work-zone types">
-    <div class="cosim-carousel-nav">
-      <button type="button" class="cosim-arrow" aria-label="Previous view" disabled>‹</button>
-      <div class="cosim-picker" aria-label="Choose a view">
-        <button type="button" aria-current="true">Hazardous scenarios</button>
-        <button type="button" aria-current="false">Work-zone types</button>
-      </div>
-      <button type="button" class="cosim-arrow" aria-label="Next view">›</button>
-    </div>
-    <div class="cosim-track" id="scenario-track" tabindex="0" aria-label="Swipe horizontally to browse scenarios and work-zone types">
-      <div class="cosim-slide" aria-label="View 1 of 2: six hazardous driving scenarios">
-        <figure class="module-video">
-          <video controls muted playsinline loop preload="none" poster="media/scenario-overview.jpg?v=3" aria-label="Six simultaneous driving scenarios with labels below: normal, no warning, rainy, curved road, nighttime, and truck"><source src="media/scenario-overview.mp4?v=3" type="video/mp4"><a href="media/scenario-overview.mp4">Open the scenario video</a></video>
-        </figure>
-      </div>
-      <div class="cosim-slide" aria-label="View 2 of 2: three work-zone types">
-        <figure class="module-video">
-          <video controls muted playsinline loop preload="none" poster="media/workzone-types.jpg?v=5" aria-label="Work-zone design figure, followed by three consecutive 16 by 9 Driving UI clips with synchronized driver gaze: WZ1 workers, WZ2 VR worker and cone, and WZ3 HUD warning"><source src="media/workzone-types.mp4?v=5" type="video/mp4"><a href="media/workzone-types.mp4">Open the work-zone types video</a></video>
-          <figcaption>WZ1 → WZ2 → WZ3 · Green marker shows driver gaze.</figcaption>
-        </figure>
-      </div>
-    </div>
-  </div>
-</section>
-</div>
-</main><footer><span>DUALSense</span><nav aria-label="Footer links"><a href="paper.pdf" target="_blank" rel="noopener" title="Preview DUALSense paper (PDF)">Paper</a><a href="https://github.com/shuo9898-zs/DualSense">Code</a><a href="#top">Back to top</a></nav></footer><script src="site.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://shuo9898-zs.github.io/duoroad/">
+  <meta http-equiv="refresh" content="0; url=/duoroad/">
+  <title>DuoRoad</title>
+  <script>location.replace('/duoroad/' + location.search + location.hash);</script>
+</head>
+<body><p>This project has moved to <a href="/duoroad/">DuoRoad</a>.</p></body>
+</html>
