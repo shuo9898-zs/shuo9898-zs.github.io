@@ -24,9 +24,8 @@ repository: "shuo9898-zs/shuo9898-zs.github.io"
 author:
   # Biographic information
   
-  author:
   name: "Shuo Zhang"
-   avatar: "/images/Weixin Image_20260206113136_2_85.jpg"
+  avatar: "/images/Weixin Image_20260206113136_2_85.jpg"
   location: "New York, USA"
   employer: "New York University"
 
