@@ -6,7 +6,7 @@
   <meta name="description" content="WZDrive: human-in-the-loop driving data for ego-trajectory prediction in roadway work zones. Explore the demo, dataset statistics, and results.">
   <link rel="canonical" href="https://shuo9898-zs.github.io/wzdrive/">
   <title>WZDrive | Trajectory Prediction in Roadway Work Zones</title>
-  <link rel="stylesheet" href="style.css?v=6">
+  <link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
   <main class="page">
@@ -74,18 +74,19 @@
               <tr><th scope="col">minADE<sub>6</sub> ↓</th><th scope="col">minFDE<sub>6</sub> ↓</th><th scope="col">minADE<sub>6</sub> ↓</th><th scope="col">minFDE<sub>6</sub> ↓</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">PGP (2021)</th><td>1.286</td><td>2.749</td><td>1.260</td><td>2.742</td></tr>
-              <tr><th scope="row">MTR (2022)</th><td>1.317</td><td>2.660</td><td>1.299</td><td>2.567</td></tr>
-              <tr><th scope="row">Forecast-MAE (2023)</th><td>1.373</td><td>2.650</td><td>1.264</td><td>2.475</td></tr>
-              <tr><th scope="row">LAFormer (2024)</th><td>1.204</td><td>2.662</td><td>1.179</td><td>2.550</td></tr>
-              <tr><th scope="row">DeMo (2024)</th><td>1.514</td><td>2.436</td><td>1.281</td><td>2.462</td></tr>
-              <tr><th scope="row">RouteFormer (2025)</th><td>2.106</td><td>4.023</td><td>2.050</td><td>3.847</td></tr>
-              <tr class="group-start"><th scope="row">MM-GRU (ours)<sup>†</sup></th><td>1.234</td><td>2.682</td><td>1.124</td><td>2.242</td></tr>
-              <tr><th scope="row">WZDrive (ours)<sup>*</sup></th><td>—</td><td>—</td><td><strong>1.094 ± 0.022</strong></td><td><strong>2.115 ± 0.082</strong></td></tr>
+              <tr><th scope="row">PGP (2021)</th><td>1.286</td><td>2.749</td><td><span class="metric-value">1.260</span><span class="metric-change">↓2.02%</span></td><td><span class="metric-value">2.742</span><span class="metric-change">↓0.25%</span></td></tr>
+              <tr><th scope="row">MTR (2022)</th><td>1.317</td><td>2.660</td><td><span class="metric-value">1.299</span><span class="metric-change">↓1.37%</span></td><td><span class="metric-value">2.567</span><span class="metric-change">↓3.50%</span></td></tr>
+              <tr><th scope="row">Forecast-MAE (2023)</th><td>1.373</td><td>2.650</td><td><span class="metric-value">1.264</span><span class="metric-change">↓7.94%</span></td><td><span class="metric-value">2.475</span><span class="metric-change">↓6.60%</span></td></tr>
+              <tr><th scope="row">LAFormer (2024)</th><td>1.204</td><td>2.662</td><td><span class="metric-value">1.179</span><span class="metric-change">↓2.08%</span></td><td><span class="metric-value">2.550</span><span class="metric-change">↓4.21%</span></td></tr>
+              <tr><th scope="row">DeMo (2024)</th><td>1.514</td><td>2.436</td><td><span class="metric-value">1.281</span><span class="metric-change">↓15.39%</span></td><td><span class="metric-value">2.462</span><span class="metric-change">↑1.07%</span></td></tr>
+              <tr><th scope="row">RouteFormer (2025)</th><td>2.106</td><td>4.023</td><td><span class="metric-value">2.050</span><span class="metric-change">↓2.65%</span></td><td><span class="metric-value">3.847</span><span class="metric-change">↓4.38%</span></td></tr>
+              <tr class="group-start"><th scope="row">MM-GRU (ours)<sup>†</sup></th><td>1.234</td><td>2.682</td><td><span class="metric-value">1.124</span><span class="metric-change">↓8.91%</span></td><td><span class="metric-value">2.242</span><span class="metric-change">↓16.41%</span></td></tr>
+              <tr><th scope="row">WZDrive (ours)<sup>*</sup></th><td>—</td><td>—</td><td><strong class="metric-value">1.094 ± 0.022</strong><span class="metric-change">↓7.18%</span></td><td><strong class="metric-value">2.115 ± 0.082</strong><span class="metric-change">↓13.18%</span></td></tr>
             </tbody>
           </table>
         </div>
-        <p class="table-note">Six predicted trajectories (K = 6). WZ denotes work-zone context. WZDrive values are mean ± SD across three seeds.</p>
+        <p class="table-note">Six predicted trajectories (K = 6). With WZ includes temporary work-zone geometry and static worker-position context; Without WZ omits those inputs. WZDrive values are mean ± SD across three seeds.</p>
+        <p class="table-note">For PGP–MM-GRU, percentages show the change in error from the same model without WZ (↓ lower/better; ↑ higher/worse). WZDrive<sup>*</sup> compares with the best published baseline for each metric: LAFormer with WZ for minADE<sub>6</sub>, and DeMo without WZ for minFDE<sub>6</sub>.</p>
         <div class="model-footnotes" aria-label="Explanation of the two models developed in this work">
           <p><sup>†</sup> <strong>MM-GRU</strong> is our GRU-based six-path comparison model. It tests the effect of work-zone context with ego motion, controls, agents, and lane geometry.</p>
           <p><sup>*</sup> <strong>WZDrive</strong> is our final model, using modality-specific fusion, staged training, direct six-path decoding, and temporal calibration. Only its work-zone-aware configuration is reported here.</p>
