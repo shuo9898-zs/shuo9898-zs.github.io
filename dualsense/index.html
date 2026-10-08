@@ -7,7 +7,7 @@
   <link rel="canonical" href="https://shuo9898-zs.github.io/duoroad/">
   <meta http-equiv="refresh" content="0; url=/duoroad/">
   <title>DuoRoad</title>
-  <script>location.replace('/duoroad/' + location.search + location.hash);</script>
+  <script>const section = location.hash.toLowerCase() === '#abstract' ? '#summary' : location.hash; location.replace('/duoroad/' + location.search + section);</script>
 </head>
 <body><p>This project has moved to <a href="/duoroad/">DuoRoad</a>.</p></body>
 </html>
