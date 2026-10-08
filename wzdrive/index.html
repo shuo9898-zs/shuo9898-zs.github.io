@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="WZDrive is a multimodal ego-trajectory prediction project for roadway work zones, with a demo, methods, results, code, and sample data.">
+  <link rel="canonical" href="https://shuo9898-zs.github.io/wzdrive/">
+  <title>WZDrive | Ego-Trajectory Prediction in Roadway Work Zones</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header" id="top">
+    <a class="wordmark" href="#top" aria-label="WZDrive home"><span class="mark" aria-hidden="true"></span>WZDrive</a>
+    <nav aria-label="Sections">
+      <a href="#demo">Demo</a>
+      <a href="#data">Data</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a href="#resources">Resources</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero content-width" aria-labelledby="hero-title">
+      <p class="eyebrow">Ego-trajectory prediction · Roadway work zones</p>
+      <h1 id="hero-title">WZDrive<span class="period">.</span></h1>
+      <p class="hero-subtitle">Ego-Trajectory Prediction for Autonomous Driving in Roadway Work Zones Using Multimodal Human-Driving Data</p>
+      <p class="hero-summary">Temporary lanes, nearby traffic, and road workers reshape how drivers move through work zones. WZDrive learns from human driving and scene context to predict possible future vehicle paths.</p>
+      <div class="hero-facts" aria-label="Project facts">
+        <span><strong>2 s</strong> observed</span>
+        <span><strong>5 s</strong> predicted</span>
+        <span><strong>6</strong> candidate paths</span>
+      </div>
+    </section>
+
+    <section class="section content-width" id="demo" aria-labelledby="demo-heading">
+      <div class="section-heading"><span class="section-number">01</span><div><h2 id="demo-heading">See the work-zone setting</h2><p>A short view of the simulation, captured signals, and prediction task.</p></div></div>
+      <video controls playsinline preload="none" poster="assets/poster.jpg" aria-label="WZDrive project demonstration, 82 seconds, silent">
+        <source src="assets/demo-web.mp4" type="video/mp4">
+        Your browser does not support HTML video.
+      </video>
+      <p class="media-caption">82-second silent project demo.</p>
+    </section>
+
+    <section class="section content-width" id="data" aria-labelledby="data-heading">
+      <div class="section-heading"><span class="section-number">02</span><div><h2 id="data-heading">WZDrive-Data</h2><p>Human driving behavior recorded across controlled work-zone encounters.</p></div></div>
+      <div class="data-stats">
+        <div><strong>33</strong><span>drivers</span></div>
+        <div><strong>1,183</strong><span>distinct encounters</span></div>
+        <div><strong>6</strong><span>scenario conditions</span></div>
+        <div><strong>3</strong><span>work-zone layouts</span></div>
+      </div>
+      <div class="split-copy">
+        <p>The collection platform pairs a human driver with either prerecorded workers or a human-operated VR worker. It records driver controls and gaze alongside vehicle motion and simulated scene information.</p>
+        <p>The prediction model uses <strong>ego motion, controls, gaze, agents, lane geometry, and work-zone context</strong>. The wider dataset also retains camera and segmentation media; those images are not direct inputs to this model.</p>
+      </div>
+    </section>
+
+    <section class="section content-width" id="method" aria-labelledby="method-heading">
+      <div class="section-heading"><span class="section-number">03</span><div><h2 id="method-heading">From context to candidate paths</h2><p>Multimodal encoding and stage-wise training for short-horizon trajectory prediction.</p></div></div>
+      <figure class="figure"><img src="assets/pipeline.png" alt="WZDrive pipeline: ego motion and controls, gaze, surrounding agents, lane geometry, and work-zone context feed fusion modules and a six-path decoder; subsequent stages refine distance, direct trajectories, and calibration." loading="lazy"><figcaption>WZDrive model pipeline.</figcaption></figure>
+    </section>
+
+    <section class="section content-width" id="results" aria-labelledby="results-heading">
+      <div class="section-heading"><span class="section-number">04</span><div><h2 id="results-heading">Prediction results</h2><p>Six-candidate prediction on the work-zone benchmark.</p></div></div>
+      <div class="results-grid">
+        <div><span class="metric-label">minADE<sub>6</sub> ↓</span><strong>1.094 <small>± 0.022 m</small></strong><span class="metric-detail">7.18% lower than the best published baseline for this metric</span></div>
+        <div><span class="metric-label">minFDE<sub>6</sub> ↓</span><strong>2.115 <small>± 0.082 m</small></strong><span class="metric-detail">13.18% lower than the best published baseline for this metric</span></div>
+      </div>
+      <p class="results-note">Means and standard deviations are from three seeds. The comparison baseline differs by metric: LAFormer with work-zone context for minADE<sub>6</sub>, and DeMo without work-zone context for minFDE<sub>6</sub>.</p>
+    </section>
+
+    <section class="section content-width resources" id="resources" aria-labelledby="resources-heading">
+      <div class="section-heading"><span class="section-number">05</span><div><h2 id="resources-heading">Code and example data</h2><p>Model code, collection code, and a small data sample.</p></div></div>
+      <div class="resource-list">
+        <a href="https://anonymous.4open.science/r/WZDrive-2AB7/" target="_blank" rel="noopener noreferrer"><span><strong>WZDrive model + data sample</strong><small>Model code and a small, single-participant example subset</small></span><span aria-hidden="true">↗</span></a>
+        <a href="https://anonymous.4open.science/r/DataCollectionPlatform-5422/" target="_blank" rel="noopener noreferrer"><span><strong>Collection platform code</strong><small>Separate anonymous repository for the simulator-side collection code</small></span><span aria-hidden="true">↗</span></a>
+      </div>
+      <p class="resource-note">The sample is not the full benchmark and does not include pretrained weights or a complete Unreal build.</p>
+    </section>
+  </main>
+
+  <footer class="content-width"><span>WZDrive</span><a href="#top">Back to top ↑</a></footer>
+</body>
+</html>
