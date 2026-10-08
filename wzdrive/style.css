@@ -30,6 +30,9 @@ h2{font-size:30px;letter-spacing:-.025em;margin:0 0 8px}
 .data-stats strong.text-stat{font-size:clamp(19px,2.45vw,30px);letter-spacing:-.035em;line-height:1.55}
 .data-stats span{display:block;color:var(--muted);font-size:14px}
 .section-note,.table-note{font-size:14px;color:var(--muted);margin:12px 0 0}
+.model-footnotes{display:grid;gap:4px;margin-top:10px;font-size:14px;color:var(--muted)}
+.model-footnotes p{margin:0}
+.model-footnotes strong,.model-footnotes sup{color:var(--text)}
 .table-block{margin:32px 0 50px}
 .table-block h3{font-size:21px;font-weight:650;margin:0 0 13px;letter-spacing:-.018em}
 .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}

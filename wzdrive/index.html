@@ -6,7 +6,7 @@
   <meta name="description" content="WZDrive: human-in-the-loop driving data for ego-trajectory prediction in roadway work zones. Explore the demo, dataset statistics, and results.">
   <link rel="canonical" href="https://shuo9898-zs.github.io/wzdrive/">
   <title>WZDrive | Trajectory Prediction in Roadway Work Zones</title>
-  <link rel="stylesheet" href="style.css?v=5">
+  <link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
   <main class="page">
@@ -80,12 +80,16 @@
               <tr><th scope="row">LAFormer (2024)</th><td>1.204</td><td>2.662</td><td>1.179</td><td>2.550</td></tr>
               <tr><th scope="row">DeMo (2024)</th><td>1.514</td><td>2.436</td><td>1.281</td><td>2.462</td></tr>
               <tr><th scope="row">RouteFormer (2025)</th><td>2.106</td><td>4.023</td><td>2.050</td><td>3.847</td></tr>
-              <tr class="group-start"><th scope="row">MM-GRU (ours)</th><td>1.234</td><td>2.682</td><td>1.124</td><td>2.242</td></tr>
-              <tr><th scope="row">WZDrive (ours)</th><td>—</td><td>—</td><td><strong>1.094 ± 0.022</strong></td><td><strong>2.115 ± 0.082</strong></td></tr>
+              <tr class="group-start"><th scope="row">MM-GRU (ours)<sup>†</sup></th><td>1.234</td><td>2.682</td><td>1.124</td><td>2.242</td></tr>
+              <tr><th scope="row">WZDrive (ours)<sup>*</sup></th><td>—</td><td>—</td><td><strong>1.094 ± 0.022</strong></td><td><strong>2.115 ± 0.082</strong></td></tr>
             </tbody>
           </table>
         </div>
         <p class="table-note">Six predicted trajectories (K = 6). WZ denotes work-zone context. WZDrive values are mean ± SD across three seeds.</p>
+        <div class="model-footnotes" aria-label="Explanation of the two models developed in this work">
+          <p><sup>†</sup> <strong>MM-GRU</strong> is our GRU-based six-path comparison model. It tests the effect of work-zone context with ego motion, controls, agents, and lane geometry.</p>
+          <p><sup>*</sup> <strong>WZDrive</strong> is our final model, using modality-specific fusion, staged training, direct six-path decoding, and temporal calibration. Only its work-zone-aware configuration is reported here.</p>
+        </div>
       </div>
     </section>
   </main>
