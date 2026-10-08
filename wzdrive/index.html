@@ -6,7 +6,7 @@
   <meta name="description" content="WZDrive: human-in-the-loop driving data for ego-trajectory prediction in roadway work zones. Explore the demo, dataset statistics, and results.">
   <link rel="canonical" href="https://shuo9898-zs.github.io/wzdrive/">
   <title>WZDrive | Trajectory Prediction in Roadway Work Zones</title>
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
   <main class="page">
@@ -14,7 +14,7 @@
       <h1>WZDrive</h1>
       <p class="subtitle">Human-in-the-loop driving data for<br class="desktop-break"> trajectory prediction in roadway work zones</p>
       <div class="resource-links" aria-label="Project resources">
-        <button type="button" disabled title="arXiv link will be added when available">arXiv <span>Coming soon</span></button>
+        <button type="button" disabled title="Paper link is not available yet">Paper</button>
         <a href="https://anonymous.4open.science/r/WZDrive-2AB7/" target="_blank" rel="noopener noreferrer">Code</a>
         <a href="https://anonymous.4open.science/r/WZDrive-2AB7/data/sample_manifest.json" target="_blank" rel="noopener noreferrer" aria-label="Data sample manifest">Data</a>
       </div>
@@ -46,26 +46,22 @@
       <div class="section-heading"><span class="number">03</span><div><h2 id="results-heading">Results</h2><p>Two-second observation and five-second prediction at 5 Hz. Errors are in meters; lower is better.</p></div></div>
 
       <div class="table-block">
-        <h3>Six-path prediction</h3>
-        <div class="table-scroll" role="region" aria-label="Six-path prediction comparison" tabindex="0">
-          <table>
+        <h3>Single-trajectory baselines</h3>
+        <div class="table-scroll" role="region" aria-label="Single-trajectory baseline comparison" tabindex="0">
+          <table class="baseline-table">
             <thead>
-              <tr><th rowspan="2" scope="col">Model</th><th colspan="2" scope="colgroup">Without work-zone context</th><th colspan="2" scope="colgroup">With work-zone context</th></tr>
-              <tr><th scope="col">minADE<sub>6</sub> ↓</th><th scope="col">minFDE<sub>6</sub> ↓</th><th scope="col">minADE<sub>6</sub> ↓</th><th scope="col">minFDE<sub>6</sub> ↓</th></tr>
+              <tr><th scope="col">Model</th><th scope="col">Features</th><th scope="col">ADE (m) ↓</th><th scope="col">FDE (m) ↓</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">PGP</th><td>1.286</td><td>2.749</td><td>1.260</td><td>2.742</td></tr>
-              <tr><th scope="row">MTR</th><td>1.317</td><td>2.660</td><td>1.299</td><td>2.567</td></tr>
-              <tr><th scope="row">Forecast-MAE</th><td>1.373</td><td>2.650</td><td>1.264</td><td>2.475</td></tr>
-              <tr><th scope="row">LAFormer</th><td>1.204</td><td>2.662</td><td>1.179</td><td>2.550</td></tr>
-              <tr><th scope="row">DeMo</th><td>1.514</td><td>2.436</td><td>1.281</td><td>2.462</td></tr>
-              <tr><th scope="row">RouteFormer</th><td>2.106</td><td>4.023</td><td>2.050</td><td>3.847</td></tr>
-              <tr class="group-start"><th scope="row">MM-GRU</th><td>1.234</td><td>2.682</td><td>1.124</td><td>2.242</td></tr>
-              <tr class="highlight"><th scope="row">WZDrive</th><td>—</td><td>—</td><td>1.094 ± 0.022</td><td>2.115 ± 0.082</td></tr>
+              <tr><th scope="row">Stay</th><td>Ego</td><td>21.635</td><td>42.053</td></tr>
+              <tr><th scope="row">CV</th><td>Ego</td><td>7.237</td><td>16.896</td></tr>
+              <tr class="group-start"><th scope="row">LSTM</th><td>Ego + control + WZ</td><td>2.988</td><td>7.513</td></tr>
+              <tr><th scope="row">Transformer</th><td>Ego + control + WZ</td><td>2.876</td><td><strong>7.284</strong></td></tr>
+              <tr><th scope="row">GRU</th><td>Ego + control + WZ + lane</td><td><strong>2.860</strong></td><td>7.320</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="table-note">WZDrive values are mean ± SD across three seeds.</p>
+        <p class="table-note">One predicted trajectory (K = 1). WZ denotes work-zone context.</p>
       </div>
 
       <div class="table-block">
@@ -74,8 +70,8 @@
           <table class="ablation-table">
             <thead><tr><th scope="col">Model variant</th><th scope="col">minADE<sub>6</sub> ↓</th><th scope="col">minFDE<sub>6</sub> ↓</th></tr></thead>
             <tbody>
-              <tr class="highlight"><th scope="row">WZDrive (full)</th><td>1.103</td><td>2.119</td></tr>
-              <tr><th scope="row">Without gaze</th><td>1.108</td><td>2.116</td></tr>
+              <tr><th scope="row">WZDrive (full)</th><td><strong>1.103</strong></td><td>2.119</td></tr>
+              <tr><th scope="row">Without gaze</th><td>1.108</td><td><strong>2.116</strong></td></tr>
               <tr><th scope="row">Without driver controls</th><td>1.293</td><td>2.419</td></tr>
               <tr><th scope="row">Without work-zone context and workers</th><td>1.187</td><td>2.390</td></tr>
             </tbody>
