@@ -27,6 +27,7 @@ h2{font-size:30px;letter-spacing:-.025em;margin:0 0 8px}
 .data-stats>div:first-child{padding-left:0}
 .data-stats>div:last-child{border-right:0}
 .data-stats strong{display:block;font-size:clamp(24px,3.2vw,37px);line-height:1.25;letter-spacing:-.045em}
+.data-stats strong.text-stat{font-size:clamp(19px,2.45vw,30px);letter-spacing:-.035em;line-height:1.55}
 .data-stats span{display:block;color:var(--muted);font-size:14px}
 .section-note,.table-note{font-size:14px;color:var(--muted);margin:12px 0 0}
 .table-block{margin:32px 0 50px}
