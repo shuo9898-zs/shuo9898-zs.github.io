@@ -1,0 +1,101 @@
+{
+  "name": "Shuo Zhang",
+  "role": "PhD Candidate",
+  "institution": "New York University",
+  "location": "New York, USA",
+  "email": "shuo.z@nyu.edu",
+  "url": "https://shuo9898-zs.github.io",
+  "github": "https://github.com/shuo9898-zs",
+  "scholar": "https://scholar.google.com/citations?user=0SdVj4MAAAAJ",
+  "description": "Shuo Zhang is a PhD candidate at New York University working on human-in-the-loop simulation, multimodal sensing, and autonomous driving.",
+  "interests": ["Human–computer interaction", "VR simulation", "Multimodal sensing", "Autonomous driving"],
+  "education": [
+    {"institution": "New York University", "degree": "PhD Candidate · Transportation Systems / Human Factors", "dates": "2023 – Present"},
+    {"institution": "University of California, Los Angeles", "degree": "Master of Science", "dates": "2021 – 2023"},
+    {"institution": "Dalian Jiaotong University", "degree": "Bachelor of Engineering", "dates": "2016 – 2020"}
+  ],
+  "experience": [
+    {"institution": "Cepton", "role": "LiDAR Intern", "dates": "Jun – Sep 2022"}
+  ],
+  "projects": [
+    {
+      "id": "duoroad",
+      "name": "DuoRoad",
+      "title": "Bringing drivers and VR workers into one shared road environment",
+      "description": "A dual-participant simulation platform for studying driver–worker interaction in safety-critical road scenarios, with human motion, gaze, vehicle sensing, and CARLA–SUMO co-simulation.",
+      "image": "/assets/images/research/duoroad.webp",
+      "alt": "DuoRoad research overview showing a VR worker, driving interface, and multimodal sensing",
+      "tags": ["Human–computer interaction", "Virtual reality", "Multimodal sensing"],
+      "group": "interaction",
+      "url": "/duoroad/",
+      "links": [{"label": "Project & demos", "url": "/duoroad/"}, {"label": "Paper", "url": "/duoroad/paper.pdf"}, {"label": "Code", "url": "https://github.com/shuo9898-zs/DuoRoad"}]
+    },
+    {
+      "id": "wzdrive",
+      "name": "WZDrive",
+      "title": "Learning driving trajectories in roadway work zones",
+      "description": "Human-in-the-loop driving data and trajectory prediction in work zones. The dataset captures 1,183 trajectories from 33 drivers across six scenario conditions and three work-zone configurations.",
+      "image": "/assets/images/research/wzdrive.webp",
+      "alt": "WZDrive demonstration with work-zone driving scenes, recorded signals, and trajectory prediction",
+      "tags": ["Trajectory prediction", "Driving behavior", "Dataset"],
+      "group": "intelligence",
+      "url": "/wzdrive/",
+      "links": [{"label": "Project & demo", "url": "/wzdrive/"}, {"label": "Code", "url": "https://anonymous.4open.science/r/WZDrive-2AB7/"}, {"label": "Data", "url": "https://anonymous.4open.science/r/WZDrive-2AB7/data/sample_manifest.json"}]
+    },
+    {
+      "id": "wz-plan",
+      "name": "WZ-Plan",
+      "title": "A work-zone testbed for reinforcement learning-based motion planning",
+      "description": "A configurable CARLA–SUMO testbed with six scenario families for training and evaluating a PPO motion planner with a structured spatial-temporal scene encoder.",
+      "image": "/assets/images/research/wz-plan.webp",
+      "alt": "Six WZ-Plan roadway work-zone scenarios for evaluating autonomous vehicle motion planning",
+      "tags": ["Reinforcement learning", "Motion planning", "CARLA + SUMO"],
+      "group": "intelligence",
+      "url": "/wz-plan/",
+      "links": [{"label": "Project", "url": "/wz-plan/"}, {"label": "Paper", "url": "/wz-plan/static/pdfs/paper.pdf"}, {"label": "Code", "url": "https://github.com/shuo9898-zs/wz-plan"}]
+    }
+  ],
+  "publications": [
+    {
+      "id": "vr-wise",
+      "title": "VR-WISE: VR based work zone immersive simulation with eye tracking and biometric sensors for capturing driver’s awareness",
+      "authors": ["Shuo Zhang", "Zu Wang", "Semiha Ergan", "Kaan Ozbay"],
+      "venue": "ACM AutomotiveUI",
+      "year": 2025,
+      "details": "Proceedings of the 17th International Conference on Automotive User Interfaces and Interactive Vehicular Applications, pp. 69–79.",
+      "url": "https://doi.org/10.1145/3744333.3747830",
+      "type": "Conference paper",
+      "bibtex": "@inproceedings{zhang2025vrwise,\n  title = {VR-WISE: VR based work zone immersive simulation with eye tracking and biometric sensors for capturing driver's awareness},\n  author = {Zhang, Shuo and Wang, Zu and Ergan, Semiha and Ozbay, Kaan},\n  booktitle = {Proceedings of the 17th International Conference on Automotive User Interfaces and Interactive Vehicular Applications},\n  year = {2025},\n  pages = {69--79},\n  doi = {10.1145/3744333.3747830}\n}"
+    },
+    {
+      "id": "vr-carla-safety",
+      "title": "Improving work zone safety: Integrating VR-CARLA co-simulation and eye tracking for behavior analysis of drivers around work zones",
+      "authors": ["Shuo Zhang", "Fan Zuo", "Semiha Ergan", "Kaan Ozbay"],
+      "venue": "Journal of Transportation Safety & Security",
+      "year": 2025,
+      "details": "Vol. 17, no. 7, pp. 826–849.",
+      "url": "https://doi.org/10.1080/19439962.2025.2462808",
+      "type": "Journal article",
+      "bibtex": "@article{zhang2025workzonesafety,\n  title = {Improving work zone safety: Integrating VR-CARLA co-simulation and eye tracking for behavior analysis of drivers around work zones},\n  author = {Zhang, Shuo and Zuo, Fan and Ergan, Semiha and Ozbay, Kaan},\n  journal = {Journal of Transportation Safety and Security},\n  volume = {17},\n  number = {7},\n  pages = {826--849},\n  year = {2025},\n  doi = {10.1080/19439962.2025.2462808}\n}"
+    },
+    {
+      "id": "vr-real-benchmark",
+      "title": "Work Zone Safety: Benchmarking Studies between Virtual Reality-based Traffic Co-simulation Platform and Real Work-Zones",
+      "authors": ["Shuo Zhang", "Semiha Ergan", "Kaan Ozbay"],
+      "venue": "ICRA Future of Construction Workshop",
+      "year": 2024,
+      "details": "3rd ICRA Future of Construction Workshop, pp. 29–32.",
+      "url": "https://doi.org/10.22260/ICRA2024/0010",
+      "pdf": "https://www.iaarc.org/publications/fulltext/08_ICRA_2024_Paper_64.pdf",
+      "type": "Workshop paper",
+      "bibtex": "@inproceedings{zhang2024benchmarking,\n  title = {Work Zone Safety: Benchmarking Studies between Virtual Reality-based Traffic Co-simulation Platform and Real Work-Zones},\n  author = {Zhang, Shuo and Ergan, Semiha and Ozbay, Kaan},\n  booktitle = {ICRA Future of Construction Workshop Papers},\n  pages = {29--32},\n  year = {2024},\n  doi = {10.22260/ICRA2024/0010}\n}"
+    }
+  ],
+  "news": [
+    {"date": "Nov 2025", "text": "Invited presentation on a VR-based dual-user driving simulation platform at New York City’s Vision Zero program."},
+    {"date": "Sep 2025", "text": "Oral presentation at ACM AutomotiveUI."},
+    {"date": "Jun 2025", "text": "Second place in the poster competition at the ITS-NY Annual Meeting."},
+    {"date": "Oct 2024", "text": "Presented research on road safety simulation in Kentucky."},
+    {"date": "Nov 2023", "text": "Presented interactive VR transportation research at National STEM Day with NYU biLAB."}
+  ]
+}

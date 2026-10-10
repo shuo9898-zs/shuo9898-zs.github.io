@@ -25,7 +25,7 @@ author:
   # Biographic information
   
   name: "Shuo Zhang"
-  avatar: "/images/Weixin Image_20260206113136_2_85.jpg"
+  avatar: "Weixin Image_20260206113136_2_85.jpg"
   location: "New York, USA"
   employer: "New York University"
 
@@ -157,8 +157,31 @@ analytics:
 include:
   - .htaccess
   - _pages
-  - files
 exclude:
+  # Preserve template examples in source without publishing fictional records.
+  - scripts
+  - PERSONAL_SITE.md
+  - _publications
+  - _portfolio
+  - _talks
+  - _teaching
+  - _posts
+  - markdown_generator
+  - files
+  - _pages/archive-layout-with-content.md
+  - _pages/category-archive.html
+  - _pages/collection-archive.html
+  - _pages/markdown.md
+  - _pages/non-menu-page.md
+  - _pages/page-archive.html
+  - _pages/portfolio.html
+  - _pages/sitemap.md
+  - _pages/tag-archive.html
+  - _pages/talkmap.html
+  - _pages/talks.html
+  - _pages/teaching.html
+  - _pages/terms.md
+  - _pages/year-archive.html
   - "*.sublime-project"
   - "*.sublime-workspace"
   - .asset-cache
