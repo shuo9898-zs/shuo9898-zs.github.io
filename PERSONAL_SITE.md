@@ -15,8 +15,10 @@ before the existing Jekyll build and deployment.
 
 Styling: `assets/css/personal.css`. Optional project filters, citation copying,
 and CV printing: `assets/js/personal.js`. Essential content and navigation work
-without JavaScript. Print / Save PDF uses the browser print dialog; a separately
-supplied resume PDF can be linked later.
+without JavaScript. The CV page links to the supplied resume at
+`assets/docs/Shuo_Zhang_CV.pdf`; this file is an unchanged copy of
+`Shuo_Zhang_Resume_Overleaf.pdf`. Replace it when updating the downloadable CV.
+The separate Print this page action uses the browser print dialog.
 
 Project pages at `/duoroad/`, `/dualsense/`, and `/wzdrive/` retain their own
 source and assets. `/wz-plan/` belongs to the separate `wz-plan` repository;
@@ -29,7 +31,11 @@ Publication titles and author order were checked against DOI records:
 
 - https://doi.org/10.1145/3744333.3747830
 - https://doi.org/10.1080/19439962.2025.2462808
+- https://openaccess.thecvf.com/content/CVPR2023/html/Xu_V2V4Real_A_Real-World_Large-Scale_Dataset_for_Vehicle-to-Vehicle_Cooperative_Perception_CVPR_2023_paper.html
 - https://www.iaarc.org/publications/icra_2024_future_of_construction_workshop_papers/work_zone_safety-benchmarking_studies_between_virtual_reality_based_traffic_co_simulation_platform_and_real_work_zones.html
 
-Other profile information comes from the existing personal homepage; project
-summaries and links come from the corresponding public project pages.
+Education, experience, technical skills, LinkedIn, expected graduation, and
+manuscript statuses come from the resume supplied on October 10, 2026.
+News comes from the previous personal homepage. Project summaries and links
+come from the corresponding public project pages. Published paper titles and
+author order use the official publication records; the supplied PDF is unedited.

@@ -10,7 +10,7 @@ def e(value):
     return escape(str(value), quote=True)
 
 def link(label, url, css=''):
-    attrs = ' target="_blank" rel="noopener noreferrer"' if url.startswith('https://') else ''
+    attrs = ' target="_blank" rel="noopener noreferrer"' if url.startswith('https://') or url.endswith('.pdf') else ''
     return f'<a href="{e(url)}"{attrs} class="{e(css)}">{label}</a>'
 
 def profile_links():
@@ -18,7 +18,8 @@ def profile_links():
         link('Email', 'mailto:' + DATA['email'], 'button-link primary'),
         link('Google Scholar', DATA['scholar'], 'button-link'),
         link('GitHub', DATA['github'], 'button-link'),
-        link('CV <span aria-hidden="true">↗</span>', '/cv/', 'button-link'),
+        link('LinkedIn', DATA['linkedin'], 'button-link'),
+        link('CV (PDF) <span aria-hidden="true">↗</span>', DATA['resume'], 'button-link'),
     ]) + '</div>'
 
 def projects():
@@ -30,7 +31,7 @@ def projects():
         <a href="{e(item['url'])}" class="research-image" aria-label="Explore {e(item['name'])}">
         <img src="{e(item['image'])}" width="960" height="580" alt="{e(item['alt'])}" loading="lazy">
         <span class="research-image-label" aria-hidden="true">View project ↗</span></a>
-        <div class="research-copy"><div class="project-name">{e(item['name'])}</div>
+        <div class="research-copy"><div class="project-name">{e(item['name'])}<span class="project-status">{e(item['status'])}</span></div>
         <h3>{link(e(item['title']), item['url'])}</h3><p>{e(item['description'])}</p>
         <div class="tags" aria-label="Research topics">{tags}</div>
         <div class="resource-links" aria-label="{e(item['name'])} resources">{resources}</div></div></article>''')
@@ -39,7 +40,10 @@ def projects():
 def publications(full=False):
     rows = []
     for item in DATA['publications']:
-        authors = ', '.join('<strong>' + e(author) + '</strong>' if author == DATA['name'] else e(author) for author in item['authors'])
+        shown_authors = item['authors'] if full else item['authors'][:5]
+        authors = ', '.join('<strong>' + e(author) + '</strong>' if author == DATA['name'] else e(author) for author in shown_authors)
+        if len(shown_authors) < len(item['authors']):
+            authors += ', et al.'
         extras = ''
         if full:
             resources = link('Publisher / DOI', item['url'])
@@ -57,9 +61,25 @@ def education():
     return '<div class="entry-list">' + ''.join(f'''<article class="entry"><h3>{e(item['institution'])}</h3>
     <p>{e(item['degree'])}</p><p class="entry-date">{e(item['dates'])}</p></article>''' for item in DATA['education']) + '</div>'
 
-def experience():
-    return '<div class="entry-list">' + ''.join(f'''<article class="entry"><h3>{e(item['institution'])}</h3>
-    <p>{e(item['role'])}</p><p class="entry-date">{e(item['dates'])}</p></article>''' for item in DATA['experience']) + '</div>'
+def experience(full=False):
+    rows = []
+    items = DATA['experience'] if full else [item for item in DATA['experience'] if item['institution'] != DATA['institution']]
+    for item in items:
+        details = '<ul class="experience-bullets">' + ''.join('<li>' + e(text) + '</li>' for text in item['bullets']) + '</ul>' if full else '<p>' + e(item['summary']) + '</p>'
+        rows.append(f'''<article class="entry"><h3>{e(item['institution'])}</h3><p>{e(item['role'])} · {e(item['location'])}</p>
+        <p class="entry-date">{e(item['dates'])}</p>{details}</article>''')
+    return '<div class="entry-list">' + ''.join(rows) + '</div>'
+
+def manuscripts():
+    rows = []
+    for item in DATA['projects']:
+        rows.append(f'''<article class="publication"><div class="pub-year">{e(item['name'])}</div><div>
+        <h3>{link(e(item['paper_title']), item['url'])}</h3><p class="pub-authors"><strong>Shuo Zhang</strong>, et al.</p>
+        <p class="pub-venue"><em>{e(item['status'])}</em></p><div class="resource-links">{link('Project & resources', item['url'])}</div></div></article>''')
+    return '<div class="publication-list manuscript-list">' + ''.join(rows) + '</div>'
+
+def skills():
+    return '<dl class="methods">' + ''.join(f'<dt>{e(item["label"])}</dt><dd>{e(item["items"])}</dd>' for item in DATA['skills']) + '</dl>'
 
 def news(limit=None):
     items = DATA['news'] if limit is None else DATA['news'][:limit]
@@ -75,7 +95,7 @@ def home():
     topics = ''.join(f'<span>{e(topic)}</span>' for topic in DATA['interests'])
     hero = f'''<section class="hero" aria-labelledby="profile-name"><div class="hero-copy">
     <p class="eyebrow">Human interaction · Simulation · Intelligent driving</p>
-    <h1 id="profile-name">Shuo Zhang</h1><p class="affiliation">PhD Candidate · New York University</p>
+    <h1 id="profile-name">Shuo Zhang</h1><p class="affiliation">PhD Candidate · New York University</p><p class="graduation">{e(DATA['graduation'])}</p>
     <div class="bio"><p>I build <strong>human-in-the-loop driving simulations</strong> to study how people interact with vehicles and each other in complex road environments.</p>
     <p>My work spans <strong>research and system development</strong>: building VR interfaces and simulation tools, connecting multimodal data streams, and studying behavior, trajectory prediction, and autonomous driving policies.</p></div>
     {profile_links()}<p class="opportunity">Interested in research and engineering opportunities in HCI, autonomous driving, robotics, and applied machine learning.</p>
@@ -98,21 +118,18 @@ def project_page():
 
 def publication_page():
     return (heading('Publications', 'Published work on immersive simulation, human behavior, and road safety. ' + link('Google Scholar <span aria-hidden="true">↗</span>', DATA['scholar']))
-        + '<div class="page-body">' + section('Peer-reviewed papers', publications(True))
-        + section('Current research', '<p class="section-intro">For ongoing work, project demos, and available manuscripts, see '
-        + link('DuoRoad', '/duoroad/') + ', ' + link('WZDrive', '/wzdrive/') + ', and ' + link('WZ-Plan', '/wz-plan/') + '.</p>') + '</div>')
+        + '<div class="page-body">' + section('Manuscripts & ongoing work', manuscripts())
+        + section('Peer-reviewed papers', publications(True)) + '</div>')
 
 def cv_page():
     rows = ''.join(f'<article class="cv-project"><h3>{link(e(item["name"]), item["url"])}</h3><p>{e(item["description"])}</p></article>' for item in DATA['projects'])
     return ('''<header class="page-heading cv-header"><div><h1>Shuo Zhang</h1><p>Curriculum vitae · PhD Candidate, New York University</p>
         <div class="cv-meta">''' + link(e(DATA['email']), 'mailto:' + DATA['email']) + ' · New York, USA<br>' + link('shuo9898-zs.github.io', DATA['url'])
-        + '''</div></div><button type="button" class="print-button" data-print-cv>Print / Save PDF</button></header><div class="page-body">'''
+        + '''</div></div><div class="cv-actions">''' + link('Download CV (PDF)', DATA['resume'], 'button-link primary')
+        + '''<button type="button" class="print-button" data-print-cv>Print this page</button></div></header><div class="page-body">'''
         + section('Research interests', '<p class="cv-summary">Human–computer interaction; VR-based driving simulation; multimodal human and vehicle sensing; autonomous driving; imitation learning and motion planning.</p>')
-        + section('Education', education()) + section('Industry experience', experience()) + section('Selected research projects', rows)
-        + section('Publications', publications()) + section('Methods & tools', '''<dl class="methods">
-        <dt>Simulation</dt><dd>CARLA, Unreal Engine, SUMO, virtual reality, human-in-the-loop experiments</dd>
-        <dt>Sensing & behavior</dt><dd>Eye tracking, biometric signals, RGB cameras, LiDAR, vehicle trajectories</dd>
-        <dt>Learning & analysis</dt><dd>Trajectory prediction, reinforcement learning, imitation learning, multimodal data analysis</dd></dl>''')
+        + section('Education', education()) + section('Research & industry experience', experience(True)) + section('Selected research projects', rows)
+        + section('Manuscripts & ongoing work', manuscripts()) + section('Published papers', publications()) + section('Technical skills', skills())
         + section('Presentations & recognition', news()) + '</div>')
 
 def contact_page():
@@ -124,6 +141,7 @@ def contact_page():
         + '''</div></section><section aria-labelledby="elsewhere-title"><h2 id="elsewhere-title" class="visually-hidden">Elsewhere</h2><ul class="contact-links">'''
         + '<li>' + link('Google Scholar <span aria-hidden="true">↗</span>', DATA['scholar']) + '<small>Publications and citations</small></li><li>'
         + link('GitHub <span aria-hidden="true">↗</span>', DATA['github']) + '<small>Research code and open-source projects</small></li><li>'
+        + link('LinkedIn <span aria-hidden="true">↗</span>', DATA['linkedin']) + '<small>Professional profile</small></li><li>'
         + link('Research projects <span aria-hidden="true">↗</span>', '/projects/') + '<small>Platforms, datasets, and demos</small></li></ul></section></div>')
 
 def render(path, title, description, content):
@@ -131,7 +149,7 @@ def render(path, title, description, content):
     nav = ''.join(f'<a href="{url}"' + (' aria-current="page"' if url == path else '') + f'>{label}</a>' for url, label in navigation)
     canonical = DATA['url'] + path
     schema = {'@context': 'https://schema.org', '@type': 'Person', 'name': DATA['name'], 'url': DATA['url'], 'jobTitle': DATA['role'],
-        'affiliation': {'@type': 'Organization', 'name': DATA['institution']}, 'sameAs': [DATA['scholar'], DATA['github']], 'knowsAbout': DATA['interests']}
+        'affiliation': {'@type': 'Organization', 'name': DATA['institution']}, 'sameAs': [DATA['scholar'], DATA['github'], DATA['linkedin']], 'knowsAbout': DATA['interests']}
     return f'''<!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{e(title)}</title><meta name="description" content="{e(description)}"><meta name="author" content="Shuo Zhang">
@@ -141,7 +159,7 @@ def render(path, title, description, content):
 <meta property="og:description" content="{e(description)}"><meta property="og:url" content="{e(canonical)}">
 <meta property="og:image" content="{DATA['url']}/assets/images/research/shuo-zhang.webp"><meta property="og:image:alt" content="Shuo Zhang">
 <meta name="twitter:card" content="summary"><link rel="icon" type="image/svg+xml" href="/assets/images/personal-favicon.svg">
-<link rel="stylesheet" href="/assets/css/personal.css?v=1"><script defer src="/assets/js/personal.js?v=1"></script>
+<link rel="stylesheet" href="/assets/css/personal.css?v=2"><script defer src="/assets/js/personal.js?v=1"></script>
 <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script></head>
 <body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="wrap header-inner">
 <a class="wordmark" href="/">Shuo Zhang</a><nav class="site-nav" aria-label="Main navigation">{nav}</nav></div></header>
