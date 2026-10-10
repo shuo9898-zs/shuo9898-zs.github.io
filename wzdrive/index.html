@@ -86,9 +86,9 @@
           </table>
         </div>
         <p class="table-note">Six predicted trajectories (K = 6). With WZ includes temporary work-zone geometry and static worker-position context; Without WZ omits those inputs. WZDrive values are mean ± SD across three seeds.</p>
-        <p class="table-note">For PGP–MM-GRU, percentages compare each model with its own Without WZ result. WZDrive<sup>*</sup> compares with MM-GRU with WZ. ↓ means lower error; ↑ means higher error.</p>
+        <p class="table-note">For each model from PGP through MM-GRU, percentages compare With WZ against that model's Without WZ result. WZDrive<sup>*</sup> compares with MM-GRU with WZ. ↓ means lower error; ↑ means higher error.</p>
         <div class="model-footnotes" aria-label="Explanation of the two models developed in this work">
-          <p><sup>†</sup> <strong>MM-GRU</strong> is our GRU-based six-path comparison model. It tests the effect of work-zone context with ego motion, controls, agents, and lane geometry.</p>
+          <p><sup>†</sup> <strong>MM-GRU</strong> is our best-performing GRU variant among the multimodal input combinations we tested. It predicts six trajectories using ego motion, driver controls, surrounding agents, lane geometry, and work-zone context.</p>
           <p><sup>*</sup> <strong>WZDrive</strong> is our final model, using modality-specific fusion, staged training, direct six-path decoding, and temporal calibration. Only its work-zone-aware configuration is reported here.</p>
         </div>
       </div>
