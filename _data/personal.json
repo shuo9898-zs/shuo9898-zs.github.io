@@ -76,10 +76,15 @@
       ],
       "group": "intelligence",
       "url": "/wzdrive/",
+      "paper": "https://arxiv.org/abs/2610.12747",
       "links": [
         {
           "label": "Project",
           "url": "/wzdrive/"
+        },
+        {
+          "label": "Paper",
+          "url": "https://arxiv.org/abs/2610.12747"
         },
         {
           "label": "Code",

@@ -109,9 +109,12 @@ def experience(full=False):
 def manuscripts():
     rows = []
     for item in DATA['projects']:
+        resources = link('Project & resources', item['url'])
+        if item.get('paper'):
+            resources += link('Paper', item['paper'])
         rows.append(f'''<article class="publication"><div class="pub-year">{e(item['name'])}</div><div>
         <h3>{link(e(item['paper_title']), item['url'])}</h3><p class="pub-authors">{project_authors(item)}</p>
-        <p class="pub-venue"><em>{e(item['status'])}</em></p><div class="resource-links">{link('Project & resources', item['url'])}</div></div></article>''')
+        <p class="pub-venue"><em>{e(item['status'])}</em></p><div class="resource-links">{resources}</div></div></article>''')
     return '<div class="publication-list manuscript-list">' + ''.join(rows) + '</div>'
 
 def skills():
@@ -174,6 +177,8 @@ def publication_page():
         resource = ''
         if item.get('website'):
             resource = ' ' + link('(Website)', item['website'])
+            if item.get('paper'):
+                resource += ' ' + link('(Paper)', item['paper'])
         elif item.get('url'):
             resource = ' ' + link('(Paper)', item.get('pdf', item['url']))
         rows.append(f'<li><span class="bibliography-number" aria-hidden="true">[{number}]</span><p>{authors} “{title}.” {detail}{resource}</p></li>')
