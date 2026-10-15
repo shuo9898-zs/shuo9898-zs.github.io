@@ -90,5 +90,8 @@ two original panels are placed side by side for its landscape thumbnail.
 The homepage has three content sections only, in this order: the portrait and
 brief profile, News, and Selected Publications. Education and industry experience remain in
 the CV. Primary navigation is Home, Publications, and CV; the Publications
-page content is retained for its later design iteration. Existing Research and
+page is a numbered, text-only bibliography of all nine papers, with manuscript
+statuses, author order, venues, and Website/Paper links. Additional in-preparation
+and accepted work is stored in `additional_publications`; it is not added to
+the homepage's selected papers. Existing Research and
 Contact URLs remain available, with their source files preserved.

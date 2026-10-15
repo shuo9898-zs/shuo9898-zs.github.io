@@ -185,6 +185,22 @@
       "items": "Hardware and ML experiments, human-subject studies, data collection, statistical analysis"
     }
   ],
+  "additional_publications": [
+    {
+      "position": 4,
+      "title": "Understanding Driver Responses to Hazardous Roadway Work-Zone Scenarios Using Multimodal Measurements",
+      "authors": ["Shuo Zhang"],
+      "authors_et_al": true,
+      "status": "In preparation"
+    },
+    {
+      "position": 9,
+      "title": "Automated Inspection Technologies for Assessing Pavement Distress and Utility Hardware in Protected Bike Lanes Using Computer Vision",
+      "authors": ["Fan Zuo", "Jingqin Gao", "Shuo Zhang"],
+      "authors_et_al": true,
+      "status": "Accepted by International Journal of Transportation Science and Technology"
+    }
+  ],
   "publications": [
     {
       "id": "vr-wise",
@@ -196,6 +212,7 @@
         "Kaan Ozbay"
       ],
       "venue": "ACM AutomotiveUI",
+      "list_venue": "ACM International Conference on Automotive User Interfaces and Interactive Vehicular Applications (ACM AutoUI 2025; acceptance rate: 35.6%)",
       "year": 2025,
       "details": "Proceedings of the 17th International Conference on Automotive User Interfaces and Interactive Vehicular Applications, pp. 69–79.",
       "url": "https://doi.org/10.1145/3744333.3747830",

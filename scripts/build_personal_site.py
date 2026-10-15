@@ -152,9 +152,33 @@ def project_page():
         <div class="research-toolbar"><p class="filter-count" data-filter-count role="status" aria-live="polite">7 papers</p><button type="button" class="motion-toggle" data-motion-toggle hidden>Pause previews</button></div>''' + projects() + '<div class="published-research">' + publication_cards() + '</div></div>')
 
 def publication_page():
-    return (heading('Publications', 'Manuscripts and published work on immersive simulation, human behavior, and autonomous driving. ' + link('Google Scholar <span aria-hidden="true">↗</span>', DATA['scholar']))
-        + '<div class="page-body">' + section('Manuscripts & ongoing work', manuscripts())
-        + section('Peer-reviewed papers', publications(True)) + '</div>')
+    entries = [dict(item, title=item['paper_title'], website=item['url']) for item in DATA['projects']]
+    entries += DATA['publications']
+    for item in sorted(DATA.get('additional_publications', []), key=lambda item: item['position']):
+        entries.insert(item['position'] - 1, item)
+    rows = []
+    for number, item in enumerate(entries, 1):
+        # Keep the complete bibliography concise while making Shuo's author position visible.
+        author_item = dict(item)
+        if len(item['authors']) > 5:
+            author_item.update(authors=item['authors'][:5], authors_et_al=True)
+        authors = project_authors(author_item)
+        if not authors.endswith('.'):
+            authors += '.'
+        title = e(item['title'].rstrip('.'))
+        detail = e(item.get('list_venue', item.get('venue', '')))
+        if item.get('year') and not item.get('list_venue'):
+            detail += f" ({item['year']})"
+        if item.get('status'):
+            detail += (' ' if detail else '') + '(' + e(item['status']) + ')'
+        resource = ''
+        if item.get('website'):
+            resource = ' ' + link('(Website)', item['website'])
+        elif item.get('url'):
+            resource = ' ' + link('(Paper)', item.get('pdf', item['url']))
+        rows.append(f'<li><span class="bibliography-number" aria-hidden="true">[{number}]</span><p>{authors} “{title}.” {detail}{resource}</p></li>')
+    return (heading('Publications') + '<div class="page-body"><ol class="complete-publications" aria-label="Complete publication list">'
+            + ''.join(rows) + '</ol></div>')
 
 def cv_page():
     rows = ''.join(f'<article class="cv-project"><h3>{link(e(item["name"]), item["url"])}</h3><p>{e(item["description"])}</p></article>' for item in DATA['projects'])
@@ -194,7 +218,7 @@ def render(path, title, description, content):
 <meta property="og:description" content="{e(description)}"><meta property="og:url" content="{e(canonical)}">
 <meta property="og:image" content="{DATA['url']}/assets/images/research/shuo-zhang.webp"><meta property="og:image:alt" content="Shuo Zhang">
 <meta name="twitter:card" content="summary"><link rel="icon" type="image/svg+xml" href="/assets/images/personal-favicon.svg">
-<link rel="stylesheet" href="/assets/css/personal.css?v=5"><script defer src="/assets/js/personal.js?v=3"></script>
+<link rel="stylesheet" href="/assets/css/personal.css?v=6"><script defer src="/assets/js/personal.js?v=3"></script>
 <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script></head>
 <body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="wrap header-inner">
 <a class="wordmark" href="/">Shuo Zhang</a><nav class="site-nav" aria-label="Main navigation">{nav}</nav></div></header>
