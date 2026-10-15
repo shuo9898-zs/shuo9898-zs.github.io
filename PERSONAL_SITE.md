@@ -75,8 +75,10 @@ Original figure files are retained in `assets/images/research/vr-wise-source/`.
 Rebuild with `node scripts/build_vrwise_gif.mjs [node-runtime-directory]`, using
 the installed `sharp` and `@napi-rs/canvas` packages. The matching static WebP
 poster is shown when previews are paused, offscreen, or reduced-motion is enabled.
-The other published papers keep text entries until their figures are supplied;
-do not use VR-WISE images as thumbnails for those different papers.
+The remaining three published papers use static Figure 1 thumbnails from their
+own papers. Source URLs, original extracts, and processing details are retained
+in `assets/images/research/paper-figure-sources/README.md`. The benchmark figure's
+two original panels are placed side by side for its landscape thumbnail.
 
 The homepage has three content sections only: the portrait and brief profile,
 Selected Publications, and News. Education and industry experience remain in

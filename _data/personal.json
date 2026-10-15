@@ -231,7 +231,13 @@
         "Human-in-the-loop",
         "Eye tracking",
         "Work-zone safety"
-      ]
+      ],
+      "image": "/assets/images/research/vr-carla-safety.webp",
+      "image_width": 882,
+      "image_height": 437,
+      "alt": "Figure 1 from the JTSS article: racing wheel, webcam gaze capture, CARLA work-zone scene, and animated workers in the integrated system",
+      "figure_number": 1,
+      "figure_source": "https://rosap.ntl.bts.gov/view/dot/84737/dot_84737_DS1.pdf"
     },
     {
       "id": "vr-real-benchmark",
@@ -253,7 +259,13 @@
         "VR co-simulation",
         "Real-world validation",
         "Work-zone safety"
-      ]
+      ],
+      "image": "/assets/images/research/vr-real-benchmark.webp",
+      "image_width": 960,
+      "image_height": 380,
+      "alt": "Figure 1 from the ICRA benchmark paper comparing VR and real-world work-zone study setups, wearable alarms, and a remote-controlled car",
+      "figure_number": 1,
+      "figure_source": "https://www.iaarc.org/publications/fulltext/08_ICRA_2024_Paper_64.pdf"
     },
     {
       "id": "v2v4real",
@@ -285,7 +297,13 @@
         "Cooperative perception",
         "V2V",
         "Real-world dataset"
-      ]
+      ],
+      "image": "/assets/images/research/v2v4real.webp",
+      "image_width": 992,
+      "image_height": 792,
+      "alt": "V2V4Real Figure 1: aggregated vehicle LiDAR data with bounding boxes, an HD road map, and a satellite map",
+      "figure_number": 1,
+      "figure_source": "https://openaccess.thecvf.com/content/CVPR2023/papers/Xu_V2V4Real_A_Real-World_Large-Scale_Dataset_for_Vehicle-to-Vehicle_Cooperative_Perception_CVPR_2023_paper.pdf"
     }
   ],
   "news": [

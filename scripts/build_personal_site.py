@@ -78,7 +78,7 @@ def publication_cards():
         if item.get('image'):
             animation = f' data-gif-preview="{e(item["gif"])}" data-poster="{e(item["image"])}"' if item.get('gif') else ''
             media = f'''<a href="{e(paper_url)}" target="_blank" rel="noopener noreferrer" class="research-image paper-figure" aria-label="Read {e(item['title'])}">
-            <img src="{e(item['image'])}" width="720" height="450" alt="{e(item['alt'])}" loading="lazy"{animation}></a>'''
+            <img src="{e(item['image'])}" width="{e(item.get('image_width',720))}" height="{e(item.get('image_height',450))}" alt="{e(item['alt'])}" loading="lazy"{animation}></a>'''
         else:
             media = f'<div class="pub-year">{item["year"]}</div>'
         tags = ''.join(f'<span>{e(tag)}</span>' for tag in item.get('tags', []))
