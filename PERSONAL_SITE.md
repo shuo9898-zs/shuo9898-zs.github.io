@@ -32,8 +32,15 @@ publication records. The original portrait is unchanged.
 Previews use existing research recordings, muted and looping only while visible.
 The global Pause previews control stops them. Reduced-motion and data-saving
 preferences show the still image by default, with an explicit Play option.
-WZDrive reuses `/wzdrive/assets/demo-web.mp4`; DuoRoad reuses
-`/dualsense/media/interaction-overview.mp4`. The WZ-Plan preview at
+WZDrive reuses `/wzdrive/assets/demo-web.mp4`. DuoRoad's 20-second preview at
+`/assets/videos/previews/duoroad.mp4` combines the first 7.5 seconds of
+`interaction-overview.mp4` (real driver–VR-worker interaction), the first 7.5
+seconds of `human-data-collection.mp4` (driver gaze and segmentation), and the
+first 5 seconds of `mm-av-data-collection.mp4` (multi-view RGB). All three
+original recordings remain in `dualsense/media/`; the static motion-capture
+figure sequence is excluded to avoid repeating VR-WISE. Rebuild with
+`python scripts/build_duoroad_preview.py /path/to/ffmpeg`.
+The WZ-Plan preview at
 `/assets/videos/previews/wz-plan.mp4` is an unchanged copy of
 `wz-plan-reference/docs/static/videos/demos/test_s3_overview.mp4` (7.8 seconds).
 Do not relabel media from one research project as evidence for another paper.
