@@ -135,13 +135,10 @@ def home():
     <p class="research-keywords" aria-label="Research interests">{topics}</p>
     {profile_links()}</div>
     <figure class="hero-portrait"><img class="portrait" src="/assets/images/research/shuo-zhang.webp" width="430" height="504" alt="Shuo Zhang" fetchpriority="high"></figure></section>'''
-    return (hero + section('Research & publications',
-            '<div class="research-toolbar"><p>Manuscripts, ongoing work, and published papers.</p><button type="button" class="motion-toggle" data-motion-toggle hidden>Pause previews</button></div>'
-            + projects() + '<div class="published-research">' + publication_cards() + '</div>',
-            'research', link('Full publication list <span aria-hidden="true">↗</span>', '/publications/'))
-        + section('News & highlights', news(3), 'news')
-        + '<div class="section two-columns"><section><div class="section-heading"><h2>Education</h2></div>' + education()
-        + '</section><section><div class="section-heading"><h2>Industry experience</h2></div>' + experience() + '</section></div>')
+    return (hero + section('Selected Publications',
+            projects() + '<div class="published-research">' + publication_cards() + '</div>',
+            'research', '<button type="button" class="motion-toggle" data-motion-toggle hidden>Pause previews</button>')
+        + section('News', news(3), 'news'))
 
 def project_page():
     return (heading('Research', 'Autonomous driving, human-in-the-loop systems, and HCI. Explore the papers and research projects below.')
@@ -180,7 +177,7 @@ def contact_page():
         + link('Research projects <span aria-hidden="true">↗</span>', '/projects/') + '<small>Platforms, datasets, and demos</small></li></ul></section></div>')
 
 def render(path, title, description, content):
-    navigation = [('/', 'About'), ('/projects/', 'Research'), ('/publications/', 'Publications'), ('/cv/', 'CV'), ('/contact/', 'Contact')]
+    navigation = [('/', 'Home'), ('/publications/', 'Publications'), ('/cv/', 'CV')]
     nav = ''.join(f'<a href="{url}"' + (' aria-current="page"' if url == path else '') + f'>{label}</a>' for url, label in navigation)
     canonical = DATA['url'] + path
     schema = {'@context': 'https://schema.org', '@type': 'Person', 'name': DATA['name'], 'url': DATA['url'], 'jobTitle': DATA['role'],
