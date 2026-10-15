@@ -35,13 +35,12 @@ def projects(compact=False):
         if item.get('preview'):
             preview = f'''<video class="research-preview" muted loop playsinline preload="none" poster="{e(item['image'])}" width="640" height="360" aria-hidden="true" data-preview="{e(item['preview'])}" data-preview-start="{e(item.get('preview_start', 0))}" data-preview-end="{e(item.get('preview_end', ''))}"></video>'''
         authors = '<p class="pub-authors">' + project_authors(item) + '</p>'
-        summary = '' if compact else f'<p>{e(item["description"])}</p><div class="tags" aria-label="Research topics">{tags}</div>'
-        identity = '' if compact else f'<div class="project-name">{e(item["name"])}</div>'
+        summary = f'<div class="tags" aria-label="Research topics">{tags}</div>'
         rows.append(f'''<article class="research-item" data-project-group="{e(item['group'])}" id="{e(item['id'])}">
         <a href="{e(item['url'])}" class="research-image" aria-label="Explore {e(item['name'])}">
         <img src="{e(item['image'])}" width="960" height="580" alt="{e(item['alt'])}" loading="lazy">
         {preview}</a>
-        <div class="research-copy">{identity}
+        <div class="research-copy">
         <h3>{link(e(item['paper_title']), item['url'])}</h3>{authors}
         <p class="pub-venue"><em>{e(item['status'])}</em></p>{summary}
         <div class="resource-links" aria-label="{e(item['name'])} resources">{resources}</div></div></article>''')
@@ -68,6 +67,31 @@ def publications(full=False):
         <div><h3>{link(e(item['title']), item['url'])}</h3><p class="pub-authors">{authors}</p>
         <p class="pub-venue"><em>{e(item['venue'])}</em> · {e(item['type'])}</p>{extras}</div></article>''')
     return '<div class="publication-list">' + '\n'.join(rows) + '</div>'
+
+def publication_cards():
+    rows = []
+    for item in DATA['publications']:
+        authors = ', '.join('<strong>' + e(name) + '</strong>' if name == DATA['name'] else e(name) for name in item['authors'][:5])
+        if len(item['authors']) > 5:
+            authors += ', et al.'
+        paper_url = item.get('pdf', item['url'])
+        if item.get('image'):
+            animation = f' data-gif-preview="{e(item["gif"])}" data-poster="{e(item["image"])}"' if item.get('gif') else ''
+            media = f'''<a href="{e(paper_url)}" target="_blank" rel="noopener noreferrer" class="research-image paper-figure" aria-label="Read {e(item['title'])}">
+            <img src="{e(item['image'])}" width="720" height="450" alt="{e(item['alt'])}" loading="lazy"{animation}></a>'''
+        else:
+            media = f'<div class="pub-year">{item["year"]}</div>'
+        tags = ''.join(f'<span>{e(tag)}</span>' for tag in item.get('tags', []))
+        resources = link('Paper', paper_url)
+        if item.get('pdf'):
+            resources += link('Publication', item['url'])
+        media_class = '' if item.get('image') else ' paper-without-figure'
+        rows.append(f'''<article class="research-item published-paper{media_class}" data-project-group="{e(item['group'])}" id="{e(item['id'])}">{media}
+        <div class="research-copy"><h3>{link(e(item['title']), item['url'])}</h3><p class="pub-authors">{authors}</p>
+        <p class="pub-venue"><em>{e(item['venue'])}</em> · {item['year']} · {e(item['type'])}</p>
+        <div class="tags" aria-label="Research topics">{tags}</div>
+        <div class="resource-links">{resources}</div></div></article>''')
+    return '<div class="research-list publication-cards">' + '\n'.join(rows) + '</div>'
 
 def education():
     return '<div class="entry-list">' + ''.join(f'''<article class="entry"><h3>{e(item['institution'])}</h3>
@@ -113,19 +137,19 @@ def home():
     <figure class="hero-portrait"><img class="portrait" src="/assets/images/research/shuo-zhang.webp" width="430" height="504" alt="Shuo Zhang" fetchpriority="high"></figure></section>'''
     return (hero + section('Research & publications',
             '<div class="research-toolbar"><p>Manuscripts, ongoing work, and published papers.</p><button type="button" class="motion-toggle" data-motion-toggle hidden>Pause previews</button></div>'
-            + projects(True) + '<div class="published-research">' + publications() + '</div>',
+            + projects() + '<div class="published-research">' + publication_cards() + '</div>',
             'research', link('Full publication list <span aria-hidden="true">↗</span>', '/publications/'))
         + section('News & highlights', news(3), 'news')
         + '<div class="section two-columns"><section><div class="section-heading"><h2>Education</h2></div>' + education()
         + '</section><section><div class="section-heading"><h2>Industry experience</h2></div>' + experience() + '</section></div>')
 
 def project_page():
-    return (heading('Research projects', 'I build simulation platforms, collect multimodal human data, and study learning-based approaches to autonomous driving.')
+    return (heading('Research', 'Autonomous driving, human-in-the-loop systems, and HCI. Explore the papers and research projects below.')
         + '''<div class="page-body"><div class="project-filters" data-project-filters hidden role="group" aria-label="Filter projects by research area">
-        <button type="button" data-filter="all" aria-pressed="true">All projects</button>
+        <button type="button" data-filter="all" aria-pressed="true">All research</button>
         <button type="button" data-filter="interaction" aria-pressed="false">Human interaction & VR</button>
         <button type="button" data-filter="intelligence" aria-pressed="false">Driving intelligence</button></div>
-        <div class="research-toolbar"><p class="filter-count" data-filter-count role="status" aria-live="polite">3 projects</p><button type="button" class="motion-toggle" data-motion-toggle hidden>Pause previews</button></div>''' + projects() + '</div>')
+        <div class="research-toolbar"><p class="filter-count" data-filter-count role="status" aria-live="polite">7 papers</p><button type="button" class="motion-toggle" data-motion-toggle hidden>Pause previews</button></div>''' + projects() + '<div class="published-research">' + publication_cards() + '</div></div>')
 
 def publication_page():
     return (heading('Publications', 'Manuscripts and published work on immersive simulation, human behavior, and autonomous driving. ' + link('Google Scholar <span aria-hidden="true">↗</span>', DATA['scholar']))
@@ -170,7 +194,7 @@ def render(path, title, description, content):
 <meta property="og:description" content="{e(description)}"><meta property="og:url" content="{e(canonical)}">
 <meta property="og:image" content="{DATA['url']}/assets/images/research/shuo-zhang.webp"><meta property="og:image:alt" content="Shuo Zhang">
 <meta name="twitter:card" content="summary"><link rel="icon" type="image/svg+xml" href="/assets/images/personal-favicon.svg">
-<link rel="stylesheet" href="/assets/css/personal.css?v=4"><script defer src="/assets/js/personal.js?v=2"></script>
+<link rel="stylesheet" href="/assets/css/personal.css?v=5"><script defer src="/assets/js/personal.js?v=3"></script>
 <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script></head>
 <body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="wrap header-inner">
 <a class="wordmark" href="/">Shuo Zhang</a><nav class="site-nav" aria-label="Main navigation">{nav}</nav></div></header>

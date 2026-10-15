@@ -23,7 +23,7 @@ class Page(HTMLParser):
             self.ids.add(attrs['id'])
         if tag == 'img' and not attrs.get('alt'):
             errors.append('Image missing alternative text')
-        for key in ('href', 'src', 'poster', 'data-preview'):
+        for key in ('href', 'src', 'poster', 'data-preview', 'data-gif-preview', 'data-poster'):
             if key in attrs:
                 self.refs.append(attrs[key])
 

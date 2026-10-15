@@ -1,4 +1,5 @@
 const previews = [...document.querySelectorAll('video[data-preview]')];
+const figurePreviews = [...document.querySelectorAll('img[data-gif-preview]')];
 const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
 let previewsPaused = motionPreference.matches || Boolean(navigator.connection?.saveData);
 const visiblePreviews = new Set();
@@ -20,12 +21,19 @@ function syncPreviews() {
       video.pause();
     }
   });
+  figurePreviews.forEach((figure) => {
+    const shouldAnimate = !previewsPaused && !document.hidden && visiblePreviews.has(figure)
+      && !figure.closest('[data-project-group]')?.hidden;
+    figure.toggleAttribute('data-active', shouldAnimate);
+    const source = shouldAnimate ? figure.dataset.gifPreview : figure.dataset.poster;
+    if (figure.getAttribute('src') !== source) figure.src = source;
+  });
   motionButtons.forEach((button) => {
     button.textContent = previewsPaused ? 'Play previews' : 'Pause previews';
   });
 }
 
-if (previews.length && 'IntersectionObserver' in window) {
+if ((previews.length || figurePreviews.length) && 'IntersectionObserver' in window) {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(({ target, isIntersecting }) => {
       if (isIntersecting) visiblePreviews.add(target);
@@ -48,6 +56,7 @@ if (previews.length && 'IntersectionObserver' in window) {
     });
     observer.observe(video);
   });
+  figurePreviews.forEach((figure) => observer.observe(figure));
   motionButtons.forEach((button) => {
     button.hidden = false;
     button.addEventListener('click', () => {
@@ -76,7 +85,7 @@ document.querySelectorAll('[data-project-filters]').forEach((filters) => {
       item.hidden = button.dataset.filter !== 'all' && item.dataset.projectGroup !== button.dataset.filter;
       if (!item.hidden) visible += 1;
     });
-    if (count) count.textContent = `${visible} ${visible === 1 ? 'project' : 'projects'}`;
+    if (count) count.textContent = `${visible} ${visible === 1 ? 'paper' : 'papers'}`;
     syncPreviews();
   });
 });

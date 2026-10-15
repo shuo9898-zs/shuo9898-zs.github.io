@@ -200,7 +200,16 @@
       "details": "Proceedings of the 17th International Conference on Automotive User Interfaces and Interactive Vehicular Applications, pp. 69–79.",
       "url": "https://doi.org/10.1145/3744333.3747830",
       "type": "Conference paper",
-      "bibtex": "@inproceedings{zhang2025vrwise,\n  title = {VR-WISE: VR based work zone immersive simulation with eye tracking and biometric sensors for capturing driver's awareness},\n  author = {Zhang, Shuo and Wang, Zu and Ergan, Semiha and Ozbay, Kaan},\n  booktitle = {Proceedings of the 17th International Conference on Automotive User Interfaces and Interactive Vehicular Applications},\n  year = {2025},\n  pages = {69--79},\n  doi = {10.1145/3744333.3747830}\n}"
+      "bibtex": "@inproceedings{zhang2025vrwise,\n  title = {VR-WISE: VR based work zone immersive simulation with eye tracking and biometric sensors for capturing driver's awareness},\n  author = {Zhang, Shuo and Wang, Zu and Ergan, Semiha and Ozbay, Kaan},\n  booktitle = {Proceedings of the 17th International Conference on Automotive User Interfaces and Interactive Vehicular Applications},\n  year = {2025},\n  pages = {69--79},\n  doi = {10.1145/3744333.3747830}\n}",
+      "image": "/assets/images/research/vr-wise.webp",
+      "gif": "/assets/images/research/vr-wise.gif",
+      "alt": "VR-WISE original figures showing motion capture, a VR driver with eye tracking and biometric sensing, work-zone scenarios, and study plots",
+      "group": "interaction",
+      "tags": [
+        "Virtual reality",
+        "Eye tracking",
+        "Biometric sensing"
+      ]
     },
     {
       "id": "vr-carla-safety",
@@ -216,7 +225,13 @@
       "details": "Vol. 17, no. 7, pp. 826–849.",
       "url": "https://doi.org/10.1080/19439962.2025.2462808",
       "type": "Journal article",
-      "bibtex": "@article{zhang2025workzonesafety,\n  title = {Improving work zone safety: Integrating VR-CARLA co-simulation and eye tracking for behavior analysis of drivers around work zones},\n  author = {Zhang, Shuo and Zuo, Fan and Ergan, Semiha and Ozbay, Kaan},\n  journal = {Journal of Transportation Safety and Security},\n  volume = {17},\n  number = {7},\n  pages = {826--849},\n  year = {2025},\n  doi = {10.1080/19439962.2025.2462808}\n}"
+      "bibtex": "@article{zhang2025workzonesafety,\n  title = {Improving work zone safety: Integrating VR-CARLA co-simulation and eye tracking for behavior analysis of drivers around work zones},\n  author = {Zhang, Shuo and Zuo, Fan and Ergan, Semiha and Ozbay, Kaan},\n  journal = {Journal of Transportation Safety and Security},\n  volume = {17},\n  number = {7},\n  pages = {826--849},\n  year = {2025},\n  doi = {10.1080/19439962.2025.2462808}\n}",
+      "group": "interaction",
+      "tags": [
+        "Human-in-the-loop",
+        "Eye tracking",
+        "Work-zone safety"
+      ]
     },
     {
       "id": "vr-real-benchmark",
@@ -232,7 +247,13 @@
       "url": "https://doi.org/10.22260/ICRA2024/0010",
       "pdf": "https://www.iaarc.org/publications/fulltext/08_ICRA_2024_Paper_64.pdf",
       "type": "Workshop paper",
-      "bibtex": "@inproceedings{zhang2024benchmarking,\n  title = {Work Zone Safety: Benchmarking Studies between Virtual Reality-based Traffic Co-simulation Platform and Real Work-Zones},\n  author = {Zhang, Shuo and Ergan, Semiha and Ozbay, Kaan},\n  booktitle = {ICRA Future of Construction Workshop Papers},\n  pages = {29--32},\n  year = {2024},\n  doi = {10.22260/ICRA2024/0010}\n}"
+      "bibtex": "@inproceedings{zhang2024benchmarking,\n  title = {Work Zone Safety: Benchmarking Studies between Virtual Reality-based Traffic Co-simulation Platform and Real Work-Zones},\n  author = {Zhang, Shuo and Ergan, Semiha and Ozbay, Kaan},\n  booktitle = {ICRA Future of Construction Workshop Papers},\n  pages = {29--32},\n  year = {2024},\n  doi = {10.22260/ICRA2024/0010}\n}",
+      "group": "interaction",
+      "tags": [
+        "VR co-simulation",
+        "Real-world validation",
+        "Work-zone safety"
+      ]
     },
     {
       "id": "v2v4real",
@@ -258,7 +279,13 @@
       "url": "https://openaccess.thecvf.com/content/CVPR2023/html/Xu_V2V4Real_A_Real-World_Large-Scale_Dataset_for_Vehicle-to-Vehicle_Cooperative_Perception_CVPR_2023_paper.html",
       "pdf": "https://openaccess.thecvf.com/content/CVPR2023/papers/Xu_V2V4Real_A_Real-World_Large-Scale_Dataset_for_Vehicle-to-Vehicle_Cooperative_Perception_CVPR_2023_paper.pdf",
       "type": "Highlight paper",
-      "bibtex": "@inproceedings{xu2023v2v4real,\n  title = {V2V4Real: A Real-World Large-Scale Dataset for Vehicle-to-Vehicle Cooperative Perception},\n  author = {Xu, Runsheng and Xia, Xin and Li, Jinlong and Li, Hanzhao and Zhang, Shuo and Tu, Zhengzhong and Meng, Zonglin and Xiang, Hao and Dong, Xiaoyu and Song, Rui and Yu, Hongkai and Zhou, Bolei and Ma, Jiaqi},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},\n  year = {2023},\n  pages = {13712--13722}\n}"
+      "bibtex": "@inproceedings{xu2023v2v4real,\n  title = {V2V4Real: A Real-World Large-Scale Dataset for Vehicle-to-Vehicle Cooperative Perception},\n  author = {Xu, Runsheng and Xia, Xin and Li, Jinlong and Li, Hanzhao and Zhang, Shuo and Tu, Zhengzhong and Meng, Zonglin and Xiang, Hao and Dong, Xiaoyu and Song, Rui and Yu, Hongkai and Zhou, Bolei and Ma, Jiaqi},\n  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},\n  year = {2023},\n  pages = {13712--13722}\n}",
+      "group": "intelligence",
+      "tags": [
+        "Cooperative perception",
+        "V2V",
+        "Real-world dataset"
+      ]
     }
   ],
   "news": [

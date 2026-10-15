@@ -60,3 +60,20 @@ The homepage introduction is deliberately brief: NYU PhD Candidate, previously
 a master's student at UCLA, and three research keywords: Autonomous Driving,
 Human-in-the-Loop, and HCI. Keep the page title and global metadata consistent
 with these keywords; project descriptions retain their actual technical scope.
+
+Research rows on the homepage and Research page show the complete paper title,
+authors, venue/status, keywords, and available resource links. Short marketing
+headlines and explanatory summaries are not displayed in these rows. The CV
+retains its detailed project descriptions.
+
+VR-WISE is fourth in the CV order and uses `assets/images/research/vr-wise.gif`.
+This is a six-frame, 15.4-second loop assembled from the original figures supplied
+by the author on October 15. It shows the system overview, worker animation
+pipeline, VR driver and sensors, scenarios, two complete gaze chart panels,
+and the supplied experience plot. No study values or scene motion are generated.
+Original figure files are retained in `assets/images/research/vr-wise-source/`.
+Rebuild with `node scripts/build_vrwise_gif.mjs [node-runtime-directory]`, using
+the installed `sharp` and `@napi-rs/canvas` packages. The matching static WebP
+poster is shown when previews are paused, offscreen, or reduced-motion is enabled.
+The other published papers keep text entries until their figures are supplied;
+do not use VR-WISE images as thumbnails for those different papers.
