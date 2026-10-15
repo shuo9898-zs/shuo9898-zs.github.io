@@ -185,23 +185,21 @@ def publication_page():
     return (heading('Publications') + '<div class="page-body"><ol class="complete-publications" aria-label="Complete publication list">'
             + ''.join(rows) + '</ol></div>')
 
-def cv_page():
-    rows = ''.join(f'<article class="cv-project"><h3>{link(e(item["name"]), item["url"])}</h3><p>{e(item["description"])}</p></article>' for item in DATA['projects'])
-    return ('''<header class="page-heading cv-header"><div><h1>Shuo Zhang</h1><p>Curriculum vitae · PhD Candidate, New York University</p>
-        <div class="cv-meta">''' + link(e(DATA['email']), 'mailto:' + DATA['email']) + ' · New York, USA<br>' + link('shuo9898-zs.github.io', DATA['url'])
-        + '''</div></div><div class="cv-actions">''' + link('Download CV (PDF)', DATA['resume'], 'button-link primary')
-        + '''<button type="button" class="print-button" data-print-cv>Print this page</button></div></header><div class="page-body">'''
-        + section('Research interests', '<p class="cv-summary">' + ' · '.join(e(topic) for topic in DATA['interests']) + '</p>')
-        + section('Education', education()) + section('Research & industry experience', experience(True)) + section('Selected research projects', rows)
-        + section('Manuscripts & ongoing work', manuscripts()) + section('Published papers', publications()) + section('Technical skills', skills())
-        + section('Presentations & recognition', news()) + '</div>')
+def cv_redirect():
+    resume = e(DATA['resume'])
+    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CV | Shuo Zhang</title><meta name="description" content="Shuo Zhang's original CV (PDF).">
+<meta http-equiv="refresh" content="0;url={resume}">
+<link rel="canonical" href="{e(DATA['url'])}{resume}"></head>
+<body><main><h1>CV</h1><p><a href="{resume}">Open Shuo Zhang's original CV (PDF)</a></p></main></body></html>'''
 
 def contact_page():
     return (heading('Get in touch', 'I welcome conversations about research and engineering opportunities, and collaborations in simulation, autonomous driving, and machine learning.')
         + '''<div class="page-body contact-grid"><section aria-labelledby="email-title"><h2 id="email-title">Email</h2>'''
         + link(e(DATA['email']), 'mailto:' + DATA['email'], 'contact-email')
         + '''<p class="contact-note">Based at New York University in New York, USA.</p><p class="contact-note">For an overview of my work, explore the project demos or view my CV.</p>'''
-        + '<div class="profile-links">' + link('Explore research', '/projects/', 'button-link') + link('View CV', '/cv/', 'button-link')
+        + '<div class="profile-links">' + link('Explore research', '/projects/', 'button-link') + link('View CV', DATA['resume'], 'button-link')
         + '''</div></section><section aria-labelledby="elsewhere-title"><h2 id="elsewhere-title" class="visually-hidden">Elsewhere</h2><ul class="contact-links">'''
         + '<li>' + link('Google Scholar <span aria-hidden="true">↗</span>', DATA['scholar']) + '<small>Publications and citations</small></li><li>'
         + link('GitHub <span aria-hidden="true">↗</span>', DATA['github']) + '<small>Research code and open-source projects</small></li><li>'
@@ -209,7 +207,7 @@ def contact_page():
         + link('Research projects <span aria-hidden="true">↗</span>', '/projects/') + '<small>Platforms, datasets, and demos</small></li></ul></section></div>')
 
 def render(path, title, description, content):
-    navigation = [('/', 'Home'), ('/publications/', 'Publications'), ('/cv/', 'CV')]
+    navigation = [('/', 'Home'), ('/publications/', 'Publications'), (DATA['resume'], 'CV')]
     nav = ''.join(f'<a href="{url}"' + (' aria-current="page"' if url == path else '') + f'>{label}</a>' for url, label in navigation)
     canonical = DATA['url'] + path
     schema = {'@context': 'https://schema.org', '@type': 'Person', 'name': DATA['name'], 'url': DATA['url'], 'jobTitle': DATA['role'],
@@ -238,13 +236,13 @@ def build():
         ('/', 'Shuo Zhang | Autonomous Driving · Human-in-the-Loop · HCI', DATA['description'], home()),
         ('/projects/', 'Research | Shuo Zhang', 'Research projects by Shuo Zhang: DuoRoad, WZDrive, and WZ-Plan. Explore simulation platforms, datasets, demos, and code.', project_page()),
         ('/publications/', 'Publications | Shuo Zhang', 'Publications by Shuo Zhang on VR simulation, eye tracking, human behavior, and roadway work-zone safety.', publication_page()),
-        ('/cv/', 'CV | Shuo Zhang', 'Curriculum vitae of Shuo Zhang, PhD candidate at New York University. Education, industry experience, research, and publications.', cv_page()),
+        ('/cv/', 'CV | Shuo Zhang', 'Original CV PDF.', ''),
         ('/contact/', 'Contact | Shuo Zhang', 'Contact Shuo Zhang at New York University about research, engineering opportunities, and collaborations.', contact_page()),
     ]
     for path, title, description, content in pages:
         dest = ROOT / path.strip('/') / 'index.html'
         dest.parent.mkdir(parents=True, exist_ok=True)
-        dest.write_text(render(path, title, description, content), encoding='utf-8')
+        dest.write_text(cv_redirect() if path == '/cv/' else render(path, title, description, content), encoding='utf-8')
     print(f'Built {len(pages)} personal pages from _data/personal.json')
 
 if __name__ == '__main__':
