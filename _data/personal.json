@@ -308,16 +308,20 @@
   ],
   "news": [
     {
-      "date": "Nov 2025",
-      "text": "Invited presentation on a VR-based dual-user driving simulation platform at New York City’s Vision Zero program."
+      "date": "Apr 2026",
+      "text": "Invited to give a guest lecture at the University of Florida (UF): “A Human-Centric Virtual Reality Framework for Modeling Road User Interaction and Advancing Safety in Urban Transportation Systems.”"
     },
     {
-      "date": "Sep 2025",
-      "text": "Oral presentation at ACM AutomotiveUI."
+      "date": "Nov 2025",
+      "text": "Invited presentation on a VR-based dual-user driving simulation platform at New York City’s Vision Zero program.",
+      "url": "https://engineering.nyu.edu/news/new-ai-language-vision-models-transform-traffic-video-analysis-improve-road-safety",
+      "link_label": "Related NYU Tandon coverage"
     },
     {
       "date": "Jun 2025",
-      "text": "Second place in the poster competition at the ITS-NY Annual Meeting."
+      "text": "Second place in the poster competition at the ITS-NY Annual Meeting.",
+      "url": "https://c2smart.engineering.nyu.edu/its-ny-32nd-annual-meeting-and-technology-exhibition/",
+      "link_label": "C2SMART news"
     },
     {
       "date": "Oct 2024",

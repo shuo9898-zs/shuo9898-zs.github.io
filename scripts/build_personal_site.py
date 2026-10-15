@@ -119,7 +119,11 @@ def skills():
 
 def news(limit=None):
     items = DATA['news'] if limit is None else DATA['news'][:limit]
-    return '<ul class="news-list">' + ''.join(f'<li><time>{e(item["date"])}</time><span>{e(item["text"])}</span></li>' for item in items) + '</ul>'
+    rows = []
+    for item in items:
+        resource = ' ' + link(e(item.get('link_label', 'Read more')), item['url']) if item.get('url') else ''
+        rows.append(f'<li><time>{e(item["date"])}</time><span>{e(item["text"])}{resource}</span></li>')
+    return '<ul class="news-list">' + ''.join(rows) + '</ul>'
 
 def heading(title, description=''):
     return f'<header class="page-heading"><h1>{e(title)}</h1>' + (f'<p>{description}</p>' if description else '') + '</header>'
