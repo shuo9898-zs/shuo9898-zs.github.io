@@ -55,3 +55,8 @@ manuscript statuses come from the resume supplied on October 10, 2026.
 News comes from the previous personal homepage. Project summaries and links
 come from the corresponding public project pages. Published paper titles and
 author order use the official publication records; the supplied PDF is unedited.
+
+The homepage introduction is deliberately brief: NYU PhD Candidate, previously
+a master's student at UCLA, and three research keywords: Autonomous Driving,
+Human-in-the-Loop, and HCI. Keep the page title and global metadata consistent
+with these keywords; project descriptions retain their actual technical scope.

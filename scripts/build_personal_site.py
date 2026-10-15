@@ -104,13 +104,13 @@ def section(title, content, target='', action=''):
     return '<section class="section"' + (f' id="{e(target)}"' if target else '') + f'><div class="section-heading"><h2>{e(title)}</h2>{action}</div>{content}</section>'
 
 def home():
+    topics = ' · '.join(e(topic) for topic in DATA['interests'])
     hero = f'''<section class="hero" aria-labelledby="profile-name"><div class="hero-copy">
-    <h1 id="profile-name">Shuo Zhang</h1><p class="affiliation">PhD Candidate · New York University</p><p class="graduation">{e(DATA['graduation'])}</p>
-    <div class="bio"><p>My research connects <strong>human-in-the-loop simulation</strong>, multimodal sensing, and autonomous driving. I build VR–CARLA platforms to study driver–worker interactions and use human driving data to develop trajectory prediction and motion planning methods.</p>
-    <p>My engineering experience spans simulation systems, VR interfaces, data collection pipelines, and LiDAR diagnostics. I am interested in research and engineering opportunities in autonomous driving, robotics, HCI, and applied machine learning.</p></div>
+    <h1 id="profile-name">Shuo Zhang</h1><p class="affiliation">PhD Candidate · New York University</p>
+    <div class="bio"><p>Previously, I earned my master’s degree at the University of California, Los Angeles (UCLA).</p></div>
+    <p class="research-keywords" aria-label="Research interests">{topics}</p>
     {profile_links()}</div>
-    <figure class="hero-portrait"><img class="portrait" src="/assets/images/research/shuo-zhang.webp" width="430" height="504" alt="Shuo Zhang" fetchpriority="high">
-    <figcaption class="portrait-caption">New York University<br>New York, USA</figcaption></figure></section>'''
+    <figure class="hero-portrait"><img class="portrait" src="/assets/images/research/shuo-zhang.webp" width="430" height="504" alt="Shuo Zhang" fetchpriority="high"></figure></section>'''
     return (hero + section('Research & publications',
             '<div class="research-toolbar"><p>Manuscripts, ongoing work, and published papers.</p><button type="button" class="motion-toggle" data-motion-toggle hidden>Pause previews</button></div>'
             + projects(True) + '<div class="published-research">' + publications() + '</div>',
@@ -138,7 +138,7 @@ def cv_page():
         <div class="cv-meta">''' + link(e(DATA['email']), 'mailto:' + DATA['email']) + ' · New York, USA<br>' + link('shuo9898-zs.github.io', DATA['url'])
         + '''</div></div><div class="cv-actions">''' + link('Download CV (PDF)', DATA['resume'], 'button-link primary')
         + '''<button type="button" class="print-button" data-print-cv>Print this page</button></div></header><div class="page-body">'''
-        + section('Research interests', '<p class="cv-summary">Human–computer interaction; VR-based driving simulation; multimodal human and vehicle sensing; autonomous driving; imitation learning and motion planning.</p>')
+        + section('Research interests', '<p class="cv-summary">' + ' · '.join(e(topic) for topic in DATA['interests']) + '</p>')
         + section('Education', education()) + section('Research & industry experience', experience(True)) + section('Selected research projects', rows)
         + section('Manuscripts & ongoing work', manuscripts()) + section('Published papers', publications()) + section('Technical skills', skills())
         + section('Presentations & recognition', news()) + '</div>')
@@ -170,7 +170,7 @@ def render(path, title, description, content):
 <meta property="og:description" content="{e(description)}"><meta property="og:url" content="{e(canonical)}">
 <meta property="og:image" content="{DATA['url']}/assets/images/research/shuo-zhang.webp"><meta property="og:image:alt" content="Shuo Zhang">
 <meta name="twitter:card" content="summary"><link rel="icon" type="image/svg+xml" href="/assets/images/personal-favicon.svg">
-<link rel="stylesheet" href="/assets/css/personal.css?v=3"><script defer src="/assets/js/personal.js?v=2"></script>
+<link rel="stylesheet" href="/assets/css/personal.css?v=4"><script defer src="/assets/js/personal.js?v=2"></script>
 <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script></head>
 <body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="wrap header-inner">
 <a class="wordmark" href="/">Shuo Zhang</a><nav class="site-nav" aria-label="Main navigation">{nav}</nav></div></header>
@@ -182,7 +182,7 @@ def render(path, title, description, content):
 
 def build():
     pages = [
-        ('/', 'Shuo Zhang | Human-in-the-loop Simulation & Autonomous Driving', DATA['description'], home()),
+        ('/', 'Shuo Zhang | Autonomous Driving · Human-in-the-Loop · HCI', DATA['description'], home()),
         ('/projects/', 'Research | Shuo Zhang', 'Research projects by Shuo Zhang: DuoRoad, WZDrive, and WZ-Plan. Explore simulation platforms, datasets, demos, and code.', project_page()),
         ('/publications/', 'Publications | Shuo Zhang', 'Publications by Shuo Zhang on VR simulation, eye tracking, human behavior, and roadway work-zone safety.', publication_page()),
         ('/cv/', 'CV | Shuo Zhang', 'Curriculum vitae of Shuo Zhang, PhD candidate at New York University. Education, industry experience, research, and publications.', cv_page()),
