@@ -65,7 +65,7 @@ def publications(full=False):
             extras = f'<div class="resource-links">{resources}</div>'
         rows.append(f'''<article class="publication" id="{e(item['id'])}"><div class="pub-year">{item['year']}</div>
         <div><h3>{link(e(item['title']), item['url'])}</h3><p class="pub-authors">{authors}</p>
-        <p class="pub-venue"><em>{e(item['venue'])}</em> · {e(item['type'])}</p>{extras}</div></article>''')
+        <p class="pub-venue"><em>{e(item['venue'])}</em> · {item['year']}</p>{extras}</div></article>''')
     return '<div class="publication-list">' + '\n'.join(rows) + '</div>'
 
 def publication_cards():
@@ -88,7 +88,7 @@ def publication_cards():
         media_class = '' if item.get('image') else ' paper-without-figure'
         rows.append(f'''<article class="research-item published-paper{media_class}" data-project-group="{e(item['group'])}" id="{e(item['id'])}">{media}
         <div class="research-copy"><h3>{link(e(item['title']), item['url'])}</h3><p class="pub-authors">{authors}</p>
-        <p class="pub-venue"><em>{e(item['venue'])}</em> · {item['year']} · {e(item['type'])}</p>
+        <p class="pub-venue"><em>{e(item['venue'])}</em> · {item['year']}</p>
         <div class="tags" aria-label="Research topics">{tags}</div>
         <div class="resource-links">{resources}</div></div></article>''')
     return '<div class="research-list publication-cards">' + '\n'.join(rows) + '</div>'
