@@ -131,7 +131,7 @@ def home():
     topics = ' · '.join(e(topic) for topic in DATA['interests'])
     hero = f'''<section class="hero" aria-labelledby="profile-name"><div class="hero-copy">
     <h1 id="profile-name">Shuo Zhang</h1><p class="affiliation">PhD Candidate · New York University</p>
-    <div class="bio"><p>Previously, I earned my master’s degree at the University of California, Los Angeles (UCLA).</p></div>
+    <div class="bio"><p>I am a PhD candidate in Transportation Systems at New York University (NYU). My research uses human-in-the-loop simulation to address out-of-distribution (OOD) and safety-critical scenarios in autonomous driving and road safety. Previously, I earned my master’s degree at the University of California, Los Angeles (UCLA).</p></div>
     <p class="research-keywords" aria-label="Research interests">{topics}</p>
     {profile_links()}</div>
     <figure class="hero-portrait"><img class="portrait" src="/assets/images/research/shuo-zhang.webp" width="430" height="504" alt="Shuo Zhang" fetchpriority="high"></figure></section>'''
