@@ -87,8 +87,8 @@ own papers. Source URLs, original extracts, and processing details are retained
 in `assets/images/research/paper-figure-sources/README.md`. The benchmark figure's
 two original panels are placed side by side for its landscape thumbnail.
 
-The homepage has three content sections only: the portrait and brief profile,
-Selected Publications, and News. Education and industry experience remain in
+The homepage has three content sections only, in this order: the portrait and
+brief profile, News, and Selected Publications. Education and industry experience remain in
 the CV. Primary navigation is Home, Publications, and CV; the Publications
 page content is retained for its later design iteration. Existing Research and
 Contact URLs remain available, with their source files preserved.

@@ -139,10 +139,9 @@ def home():
     <p class="research-keywords" aria-label="Research interests">{topics}</p>
     {profile_links()}</div>
     <figure class="hero-portrait"><img class="portrait" src="/assets/images/research/shuo-zhang.webp" width="430" height="504" alt="Shuo Zhang" fetchpriority="high"></figure></section>'''
-    return (hero + section('Selected Publications',
+    return (hero + section('News', news(3), 'news') + section('Selected Publications',
             projects() + '<div class="published-research">' + publication_cards() + '</div>',
-            'research', '<button type="button" class="motion-toggle" data-motion-toggle hidden>Pause previews</button>')
-        + section('News', news(3), 'news'))
+            'research', '<button type="button" class="motion-toggle" data-motion-toggle hidden>Pause previews</button>'))
 
 def project_page():
     return (heading('Research', 'Autonomous driving, human-in-the-loop systems, and HCI. Explore the papers and research projects below.')
