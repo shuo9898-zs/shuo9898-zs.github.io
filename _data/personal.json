@@ -62,37 +62,6 @@
   ],
   "projects": [
     {
-      "id": "duoroad",
-      "name": "DuoRoad",
-      "status": "Under review",
-      "paper_title": "DuoRoad: A Dual-Participant Simulation Platform for Driver–Worker Interaction and Multimodal Data Collection",
-      "title": "Bringing drivers and VR workers into one shared road environment",
-      "description": "A dual-participant simulation platform for studying driver–worker interaction in safety-critical road scenarios, with human motion, gaze, vehicle sensing, and CARLA–SUMO co-simulation.",
-      "image": "/assets/images/research/duoroad.webp",
-      "alt": "DuoRoad research overview showing a VR worker, driving interface, and multimodal sensing",
-      "tags": [
-        "Human–computer interaction",
-        "Virtual reality",
-        "Multimodal sensing"
-      ],
-      "group": "interaction",
-      "url": "/duoroad/",
-      "links": [
-        {
-          "label": "Project & demos",
-          "url": "/duoroad/"
-        },
-        {
-          "label": "Paper",
-          "url": "/duoroad/paper.pdf"
-        },
-        {
-          "label": "Code",
-          "url": "https://github.com/shuo9898-zs/DuoRoad"
-        }
-      ]
-    },
-    {
       "id": "wzdrive",
       "name": "WZDrive",
       "status": "Under review",
@@ -110,7 +79,7 @@
       "url": "/wzdrive/",
       "links": [
         {
-          "label": "Project & demo",
+          "label": "Project",
           "url": "/wzdrive/"
         },
         {
@@ -121,7 +90,50 @@
           "label": "Data",
           "url": "https://anonymous.4open.science/r/WZDrive-2AB7/data/sample_manifest.json"
         }
-      ]
+      ],
+      "preview": "/wzdrive/assets/demo-web.mp4",
+      "authors": [
+        "Shuo Zhang"
+      ],
+      "authors_et_al": true,
+      "preview_start": 35,
+      "preview_end": 47
+    },
+    {
+      "id": "duoroad",
+      "name": "DuoRoad",
+      "status": "Under review",
+      "paper_title": "DuoRoad: A Dual-Participant Simulation Platform for Driver–Worker Interaction and Multimodal Data Collection",
+      "title": "Bringing drivers and VR workers into one shared road environment",
+      "description": "A dual-participant simulation platform for studying driver–worker interaction in safety-critical road scenarios, with human motion, gaze, vehicle sensing, and CARLA–SUMO co-simulation.",
+      "image": "/assets/images/research/duoroad.webp",
+      "alt": "DuoRoad research overview showing a VR worker, driving interface, and multimodal sensing",
+      "tags": [
+        "Human–computer interaction",
+        "Virtual reality",
+        "Multimodal sensing"
+      ],
+      "group": "interaction",
+      "url": "/duoroad/",
+      "links": [
+        {
+          "label": "Project",
+          "url": "/duoroad/"
+        },
+        {
+          "label": "Paper",
+          "url": "/duoroad/paper.pdf"
+        },
+        {
+          "label": "Code",
+          "url": "https://github.com/shuo9898-zs/DuoRoad"
+        }
+      ],
+      "preview": "/dualsense/media/interaction-overview.mp4",
+      "authors": [
+        "Shuo Zhang"
+      ],
+      "authors_et_al": true
     },
     {
       "id": "wz-plan",
@@ -138,21 +150,26 @@
         "CARLA + SUMO"
       ],
       "group": "intelligence",
-      "url": "/wz-plan/",
+      "url": "https://shuo9898-zs.github.io/wz-plan/",
       "links": [
         {
           "label": "Project",
-          "url": "/wz-plan/"
+          "url": "https://shuo9898-zs.github.io/wz-plan/"
         },
         {
           "label": "Paper",
-          "url": "/wz-plan/static/pdfs/paper.pdf"
+          "url": "https://shuo9898-zs.github.io/wz-plan/static/pdfs/paper.pdf"
         },
         {
           "label": "Code",
           "url": "https://github.com/shuo9898-zs/wz-plan"
         }
-      ]
+      ],
+      "preview": "/assets/videos/previews/wz-plan.mp4",
+      "authors": [
+        "Shuo Zhang"
+      ],
+      "authors_et_al": true
     }
   ],
   "skills": [

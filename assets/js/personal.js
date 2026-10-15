@@ -1,3 +1,68 @@
+const previews = [...document.querySelectorAll('video[data-preview]')];
+const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+let previewsPaused = motionPreference.matches || Boolean(navigator.connection?.saveData);
+const visiblePreviews = new Set();
+const motionButtons = [...document.querySelectorAll('[data-motion-toggle]')];
+
+function syncPreviews() {
+  previews.forEach((video) => {
+    const shouldPlay = !previewsPaused && !document.hidden && visiblePreviews.has(video)
+      && !video.closest('[data-project-group]')?.hidden;
+    video.toggleAttribute('data-static', motionPreference.matches && previewsPaused);
+    if (shouldPlay) {
+      if (!video.src) {
+        video.src = video.dataset.preview;
+        video.muted = true;
+        video.load();
+      }
+      video.play().catch(() => {}); // Poster remains visible if autoplay is unavailable.
+    } else {
+      video.pause();
+    }
+  });
+  motionButtons.forEach((button) => {
+    button.textContent = previewsPaused ? 'Play previews' : 'Pause previews';
+  });
+}
+
+if (previews.length && 'IntersectionObserver' in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(({ target, isIntersecting }) => {
+      if (isIntersecting) visiblePreviews.add(target);
+      else visiblePreviews.delete(target);
+    });
+    syncPreviews();
+  }, { threshold: 0.15 });
+  previews.forEach((video) => {
+    const start = Number(video.dataset.previewStart) || 0;
+    const end = Number(video.dataset.previewEnd) || 0;
+    video.addEventListener('loadedmetadata', () => {
+      if (start > 0 && start < video.duration) video.currentTime = start;
+    });
+    video.addEventListener('loadeddata', () => {
+      if (!video.seeking) video.setAttribute('data-ready', '');
+    });
+    video.addEventListener('seeked', () => video.setAttribute('data-ready', ''));
+    video.addEventListener('timeupdate', () => {
+      if (end > start && video.currentTime >= end) video.currentTime = start;
+    });
+    observer.observe(video);
+  });
+  motionButtons.forEach((button) => {
+    button.hidden = false;
+    button.addEventListener('click', () => {
+      previewsPaused = !previewsPaused;
+      syncPreviews();
+    });
+  });
+  motionPreference.addEventListener('change', () => {
+    previewsPaused = motionPreference.matches;
+    syncPreviews();
+  });
+  document.addEventListener('visibilitychange', syncPreviews);
+  syncPreviews();
+}
+
 document.querySelectorAll('[data-project-filters]').forEach((filters) => {
   const items = [...document.querySelectorAll('[data-project-group]')];
   const count = document.querySelector('[data-filter-count]');
@@ -12,6 +77,7 @@ document.querySelectorAll('[data-project-filters]').forEach((filters) => {
       if (!item.hidden) visible += 1;
     });
     if (count) count.textContent = `${visible} ${visible === 1 ? 'project' : 'projects'}`;
+    syncPreviews();
   });
 });
 

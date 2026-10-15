@@ -14,7 +14,7 @@ before the existing Jekyll build and deployment.
 4. Commit data, source, and generated pages together. Push to `master` to deploy.
 
 Styling: `assets/css/personal.css`. Optional project filters, citation copying,
-and CV printing: `assets/js/personal.js`. Essential content and navigation work
+CV printing, and silent video previews: `assets/js/personal.js`. Essential content and navigation work
 without JavaScript. The CV page links to the supplied resume at
 `assets/docs/Shuo_Zhang_CV.pdf`; this file is an unchanged copy of
 `Shuo_Zhang_Resume_Overleaf.pdf`. Replace it when updating the downloadable CV.
@@ -23,6 +23,22 @@ The separate Print this page action uses the browser print dialog.
 Project pages at `/duoroad/`, `/dualsense/`, and `/wzdrive/` retain their own
 source and assets. `/wz-plan/` belongs to the separate `wz-plan` repository;
 do not generate a competing directory here.
+
+The homepage follows the selected-publications order in the supplied CV:
+WZDrive, DuoRoad, WZ-Plan, VR-WISE, the JTSS journal article, the ICRA workshop
+paper, and V2V4Real. Published titles and author lists retain the verified
+publication records. The original portrait is unchanged.
+
+Previews use existing research recordings, muted and looping only while visible.
+The global Pause previews control stops them. Reduced-motion and data-saving
+preferences show the still image by default, with an explicit Play option.
+WZDrive reuses `/wzdrive/assets/demo-web.mp4`; DuoRoad reuses
+`/dualsense/media/interaction-overview.mp4`. The WZ-Plan preview at
+`/assets/videos/previews/wz-plan.mp4` is an unchanged copy of
+`wz-plan-reference/docs/static/videos/demos/test_s3_overview.mp4` (7.8 seconds).
+Do not relabel media from one research project as evidence for another paper.
+WZDrive loops the 35–47 second excerpt to skip the opening title sequence;
+the excerpt bounds are editable in `_data/personal.json`.
 
 Template example collections and files remain in source but are excluded from
 public builds. No fictional publications or CV entries are used.
