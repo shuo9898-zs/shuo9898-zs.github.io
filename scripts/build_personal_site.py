@@ -125,7 +125,10 @@ def news(limit=None):
     rows = []
     for item in items:
         resource = ' ' + link(e(item.get('link_label', 'Read more')), item['url']) if item.get('url') else ''
-        rows.append(f'<li><time>{e(item["date"])}</time><span>{e(item["text"])}{resource}</span></li>')
+        text = e(item['text'])
+        for phrase in item.get('emphasis', []):
+            text = text.replace(e(phrase), '<strong>' + e(phrase) + '</strong>')
+        rows.append(f'<li><time>{e(item["date"])}</time><span>{text}{resource}</span></li>')
     return '<ul class="news-list">' + ''.join(rows) + '</ul>'
 
 def heading(title, description=''):
