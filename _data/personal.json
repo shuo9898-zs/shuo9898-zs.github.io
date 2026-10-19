@@ -337,7 +337,7 @@
     {
       "date": "Nov 2025",
       "text": "Invited to present at New York City’s Vision Zero program. Title: “A VR-Based Dual-User Driving Simulation Platform.”",
-      "emphasis": ["New York City’s Vision Zero program"],
+      "emphasis": ["Invited to present", "New York City’s Vision Zero program"],
       "url": "https://engineering.nyu.edu/news/new-ai-language-vision-models-transform-traffic-video-analysis-improve-road-safety",
       "link_label": "Related NYU Tandon coverage"
     },
