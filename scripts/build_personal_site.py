@@ -138,7 +138,7 @@ def home():
     topics = ' · '.join(e(topic) for topic in DATA['interests'])
     hero = f'''<section class="hero" aria-labelledby="profile-name"><div class="hero-copy">
     <h1 id="profile-name">Shuo Zhang</h1><p class="affiliation">PhD Candidate · New York University</p>
-    <div class="bio"><p>I am a PhD candidate in Transportation Systems at New York University (NYU). My research uses human-in-the-loop simulation to address out-of-distribution (OOD) and safety-critical scenarios in autonomous driving and road safety. Previously, I earned my master’s degree at the University of California, Los Angeles (UCLA).</p></div>
+    <div class="bio"><p>I am a <strong>final-year PhD candidate</strong> in Transportation Systems at New York University (NYU). My research uses human-in-the-loop simulation to address out-of-distribution (OOD) and safety-critical scenarios in autonomous driving and road safety. Previously, I earned my master’s degree at the University of California, Los Angeles (UCLA).</p></div>
     <p class="research-keywords" aria-label="Research interests">{topics}</p>
     {profile_links()}</div>
     <figure class="hero-portrait"><img class="portrait" src="/assets/images/research/shuo-zhang.webp" width="430" height="504" alt="Shuo Zhang" fetchpriority="high"></figure></section>'''
@@ -233,7 +233,7 @@ def render(path, title, description, content):
 
 def build():
     pages = [
-        ('/', 'Shuo Zhang | Autonomous Driving · Human-in-the-Loop · HCI', DATA['description'], home()),
+        ('/', 'Shuo Zhang | ' + ' · '.join(DATA['interests']), DATA['description'], home()),
         ('/projects/', 'Research | Shuo Zhang', 'Research projects by Shuo Zhang: DuoRoad, WZDrive, and WZ-Plan. Explore simulation platforms, datasets, demos, and code.', project_page()),
         ('/publications/', 'Publications | Shuo Zhang', 'Publications by Shuo Zhang on VR simulation, eye tracking, human behavior, and roadway work-zone safety.', publication_page()),
         ('/cv/', 'CV | Shuo Zhang', 'Original CV PDF.', ''),
